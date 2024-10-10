@@ -23,7 +23,7 @@ public class Ex04 {
             System.out.println(nums[i]);
         }
 
-        for (int num : nums) {
+        for (int num : nums) { // 향상된 for 문
             System.out.println(num);
         }
     }
