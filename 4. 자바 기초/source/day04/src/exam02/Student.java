@@ -1,5 +1,6 @@
 package exam02;
 
+// exam02.Student : 전체 클래스명
 public class Student {
 
     int id; // 학번
