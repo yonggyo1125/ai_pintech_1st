@@ -12,5 +12,8 @@ public class Ex01 {
 
         s1.showDate();
 
+        int month = s1.getMonth();
+        System.out.println(month);
+
     }
 }

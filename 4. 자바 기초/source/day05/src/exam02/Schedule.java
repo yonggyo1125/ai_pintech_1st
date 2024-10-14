@@ -30,6 +30,7 @@ public class Schedule {
     }
 
     public int getDay() {
+
         return day;
     }
 
