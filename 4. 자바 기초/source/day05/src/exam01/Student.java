@@ -14,5 +14,15 @@ public class Student {
 
     static void staticMethod() {
         System.out.println("정적 메서드!");
+        //this.name = "이이름";
+        id =  1000; // 정적 변수
+
+        //this.showInfo();
+        //showInfo();
+        staticMethod2();
+    }
+
+    static void staticMethod2() {
+
     }
 }
