@@ -1,4 +1,4 @@
 package exam04;
 
-public class Math2 /*extends Math*/ {
+public class Math2 /*extends Math /// */ {
 }
