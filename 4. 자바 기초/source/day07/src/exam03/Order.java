@@ -10,4 +10,15 @@ public class Order implements Buyer, Seller {
     public void sell() {
         System.out.println("판매!");
     }
+
+    /*
+    @Override
+    public void order() {
+       // Buyer.super.order();
+        Seller.super.order();
+    } */
+
+    public void order() {
+        System.out.println("주문!");
+    }
 }
