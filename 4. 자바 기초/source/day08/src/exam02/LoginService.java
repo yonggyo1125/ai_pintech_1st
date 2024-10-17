@@ -13,7 +13,10 @@ public class LoginService {
                 throw new PasswordValidationException();
             }
         } catch (UserIdValidationException e) {
-
+            /**
+             * String getMessage()
+             * void printStackTrace()
+             */
         } catch (PasswordValidationException e) {
 
         }
