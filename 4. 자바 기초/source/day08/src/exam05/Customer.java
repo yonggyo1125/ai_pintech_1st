@@ -12,6 +12,19 @@ public class Customer extends java.lang.Object {
     }
 
     @Override
+    public boolean equals(Object obj) {
+
+        if (obj instanceof Customer customer) {
+            // id, name, email이 같으면 동등하다.
+           if (id == customer.id && name.equals(customer.name) && email.equals(customer.email)) {
+               return true;
+           }
+        }
+
+        return false;
+    }
+
+    @Override
     public String toString() {
         return "Customer{" +
                 "name='" + name + '\'' +
