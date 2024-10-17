@@ -10,18 +10,18 @@ public class Ex03 {
         try {
             fis = new FileInputStream("b.txt");
 
-            fis.close();
-            System.out.println("자원 해제!");
 
         } catch (IOException e) {
             e.printStackTrace();
+        } finally {
+            // 예외가 있던 없던 항상 처리하는 자원 해제
+
             if (fis != null) {
                 try {
                     fis.close();
-                } catch (IOException e2) {
-                    e2.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
                 }
-
             }
             System.out.println("자원 해제!");
         }
