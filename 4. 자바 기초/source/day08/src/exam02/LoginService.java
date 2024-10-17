@@ -2,7 +2,7 @@ package exam02;
 
 public class LoginService {
 
-    public void process(String userId, String password) throws UserIdValidationException, PasswordValidationException {
+    public void process(String userId, String password) /* throws UserIdValidationException, PasswordValidationException */ {
 
             // userId - user01, password - 1234
             if (!userId.equals("user01")) { // user01과 불일치
