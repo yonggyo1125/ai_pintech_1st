@@ -1,6 +1,6 @@
 package exam01;
 
-public class MyResource implements AutoCloseable {
+public class MyResource extends java.lang.Object implements AutoCloseable {
 
     @Override
     public void close() throws Exception {
