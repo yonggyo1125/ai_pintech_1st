@@ -1,5 +1,7 @@
 package exam05;
 
+import java.util.Objects;
+
 public class Customer extends java.lang.Object {
     private int id; // 고객 번호
     private String name; // 고객명
@@ -22,6 +24,11 @@ public class Customer extends java.lang.Object {
         }
 
         return false;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, email);
     }
 
     @Override
