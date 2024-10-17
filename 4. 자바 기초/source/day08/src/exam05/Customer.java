@@ -1,6 +1,6 @@
 package exam05;
 
-public class Customer {
+public class Customer extends java.lang.Object {
     private int id; // 고객 번호
     private String name; // 고객명
     private String email; // 이메일
