@@ -10,7 +10,6 @@ public class Ex03 {
         try {
             fis = new FileInputStream("b.txt");
 
-
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
