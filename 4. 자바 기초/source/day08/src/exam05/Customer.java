@@ -10,4 +10,13 @@ public class Customer extends java.lang.Object {
         this.name = name;
         this.email = email;
     }
+
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "name='" + name + '\'' +
+                ", id=" + id +
+                ", email='" + email + '\'' +
+                '}';
+    }
 }
