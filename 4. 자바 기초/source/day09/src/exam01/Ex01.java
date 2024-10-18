@@ -18,7 +18,7 @@ public class Ex01 {
             System.out.println(constructor);
         }
 
-        System.out.println("---- 멤머 변수 ----");
+        System.out.println("---- 멤버 변수 ----");
         /*
         for (Field field : cls.getFields()) {
             System.out.println(field);
