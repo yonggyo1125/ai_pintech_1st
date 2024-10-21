@@ -1,7 +1,7 @@
 package exam04;
 
-public class Box<T> { // 지네릭 클래스
-    private T item;
+public class Box<T extends Fruit & Eatable> { // 지네릭 클래스
+    private T item; // Object item
 
     //private static T item2; // 처음부터 변수인 static은 자료형이 명확하게 정의 되어 있어야 한다.
 
@@ -14,5 +14,13 @@ public class Box<T> { // 지네릭 클래스
 
     public void setItem(T item) {
         this.item = item;
+    }
+
+    public String toString() {
+        // Apple item  -> info() X
+        // Object item X
+        // Fruit item O
+        String info = item.info(); // apple.info()
+        return info;
     }
 }
