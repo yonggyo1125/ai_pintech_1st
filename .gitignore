@@ -1,3 +1,4 @@
 dbeaver/
 .idea/
 out/
+/gradle-*
