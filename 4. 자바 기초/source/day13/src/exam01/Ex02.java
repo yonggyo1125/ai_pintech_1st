@@ -10,7 +10,9 @@ public class Ex02 {
         System.out.println(cond3.test(150)); // false
         System.out.println(cond3.test(50)); // true
 
-        IntPredicate cond4 = cond3.negate(); // x > 100
+        IntPredicate cond4 = cond3.negate(); // x < 10 || x > 100
         System.out.println(cond4.test(150)); // true
+
+
     }
 }
