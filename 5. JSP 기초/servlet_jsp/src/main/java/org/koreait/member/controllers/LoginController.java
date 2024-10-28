@@ -16,7 +16,10 @@ public class LoginController extends HttpServlet {
         // ServletConfig의 주요 메서드 : 설정값 조회 메서드
         //              String getInitParameter(String name);
 
-
+        String key1 = config.getInitParameter("key1");
+        String key2 = config.getInitParameter("key2");
+        System.out.printf("key1=%s%n", key1);
+        System.out.printf("key2=%s%n", key2);
     }
     /*
     public void init() throws ServletException {
