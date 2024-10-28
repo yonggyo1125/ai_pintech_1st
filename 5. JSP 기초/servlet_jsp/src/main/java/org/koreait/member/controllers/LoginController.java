@@ -1,5 +1,6 @@
 package org.koreait.member.controllers;
 
+import jakarta.servlet.ServletConfig;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -11,13 +12,19 @@ import java.io.PrintWriter;
 public class LoginController extends HttpServlet {
 
     @Override
+    public void init(ServletConfig config) throws ServletException {
+        // ServletConfig의 주요 메서드 : 설정값 조회 메서드
+    }
+    /*
     public void init() throws ServletException {
         System.out.println("서블릿 객체가 생성되면 최초 1번 실행");
+        // 설정 값을 최최 한번 조회하고 서블릿 객체 내에서 유지..., 최초 유입 로그...
     }
-
+    */
     @Override
     public void destroy() {
         System.out.println("서블릿 객체가 소멸되지 직전에 1번만 실행");
+        // 공통 자원 해제, 로그 기록
     }
 
     @Override
