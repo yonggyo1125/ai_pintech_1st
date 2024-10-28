@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 public class LoginController extends HttpServlet {
+    //private String value; // 지양
 
     @Override
     public void init(ServletConfig config) throws ServletException {

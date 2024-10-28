@@ -23,4 +23,13 @@
         <servlet-name>Login-Controller</servlet-name>
         <url-pattern>/member/login</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+       <servlet-name>Join-Controller</servlet-name>
+        <servlet-class>org.koreait.member.controllers.JoinController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Join-Controller</servlet-name>
+        <url-pattern>/member/join</url-pattern>
+    </servlet-mapping>
 </web-app>
