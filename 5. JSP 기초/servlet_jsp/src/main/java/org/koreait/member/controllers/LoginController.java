@@ -14,6 +14,9 @@ public class LoginController extends HttpServlet {
     @Override
     public void init(ServletConfig config) throws ServletException {
         // ServletConfig의 주요 메서드 : 설정값 조회 메서드
+        //              String getInitParameter(String name);
+
+
     }
     /*
     public void init() throws ServletException {
