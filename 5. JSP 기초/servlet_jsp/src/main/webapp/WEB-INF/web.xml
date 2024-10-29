@@ -50,4 +50,13 @@
         <filter-name>my-filter-2</filter-name>
         <url-pattern>/board/list</url-pattern>
     </filter-mapping>
+
+    <filter>
+        <filter-name>my-filter-3</filter-name>
+        <filter-class>org.koreait.filters.MyFilter3</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>my-filter-3</filter-name>
+        <url-pattern>/board/*</url-pattern>
+    </filter-mapping>
 </web-app>
