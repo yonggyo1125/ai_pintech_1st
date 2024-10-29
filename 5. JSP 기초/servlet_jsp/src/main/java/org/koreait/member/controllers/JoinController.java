@@ -35,6 +35,11 @@ public class JoinController extends HttpServlet {
 
     @Override
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String email = req.getParameter("email");
+        String password = req.getParameter("password");
+        String confirmPassword = req.getParameter("confirmPassword");
+        String userName = req.getParameter("userName");
 
+        System.out.printf("email=%s, password=%s, confirmPassword=%s, userName=%s%n", email, password, confirmPassword, userName);
     }
 }
