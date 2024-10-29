@@ -7,6 +7,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Arrays;
 
 public class JoinController extends HttpServlet {
 
@@ -46,7 +47,11 @@ public class JoinController extends HttpServlet {
         String password = req.getParameter("password");
         String confirmPassword = req.getParameter("confirmPassword");
         String userName = req.getParameter("userName");
+        String hobby = req.getParameter("hobby"); // hobby로 요청한 값이 여러개더라도 처음 1개만 출력
 
-        System.out.printf("email=%s, password=%s, confirmPassword=%s, userName=%s%n", email, password, confirmPassword, userName);
+        System.out.printf("email=%s, password=%s, confirmPassword=%s, userName=%s, hobby=%s%n", email, password, confirmPassword, userName, hobby);
+
+        String[] hobbies = req.getParameterValues("hobby");
+        System.out.println(Arrays.toString(hobbies));
     }
 }
