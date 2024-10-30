@@ -6,7 +6,6 @@ int num2 = 200; // 지역변수
 out.write(num1 + num2);
 //out.write("<h1>" + message + "</h1>");
 printMessage();
-111
 %>
 
 <%! // 선언문 태그
