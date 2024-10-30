@@ -12,4 +12,17 @@ public class CommonRequestWrapper extends HttpServletRequestWrapper {
 
         System.out.println("요청 공통 코드 처리...");
     }
+    /*
+    @Override
+    public String getParameter(String name) {
+
+
+        String value = super.getParameter(name);
+
+        if (value != null && !value.isBlank()) {
+            value = String.format("**%s**", value);
+        }
+
+        return value;
+    } */
 }
