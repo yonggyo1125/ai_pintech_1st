@@ -16,5 +16,9 @@ public class Ex03 {
 
         items.add("항목6");
         System.out.println("배열 공간 갯수:" + items.capacity());
+
+        items.forEach(System.out::println);
+
+
     }
 }
