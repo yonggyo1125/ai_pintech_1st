@@ -1,4 +1,9 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
+<%
+    String key1 = request.getParameter("key1");
+    String key2 = request.getParameter("key2");
+    System.out.printf("key1=%s, key2=%s%n", key1, key2);
+%>
 <!DOCTYPE html>
 <html>
     <head>
