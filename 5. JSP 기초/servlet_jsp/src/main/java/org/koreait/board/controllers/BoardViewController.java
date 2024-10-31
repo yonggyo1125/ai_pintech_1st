@@ -14,7 +14,7 @@ import java.io.PrintWriter;
 public class BoardViewController extends HttpServlet {
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
+        // 처리, 처리 결과 view.jsp에 넘겼다!
         RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/templates/board/view.jsp");
         rd.forward(req, resp);
     }
