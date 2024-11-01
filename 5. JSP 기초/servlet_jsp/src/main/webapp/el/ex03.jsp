@@ -25,4 +25,5 @@
             <input type="text" name="userName">
         </dd>
     </dl>
+    <button type='submit'>가입하기</button>
 </form>
