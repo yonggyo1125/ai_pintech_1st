@@ -4,6 +4,17 @@
          xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee
                       https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd"
          version="6.0">
+
+    <context-param>
+        <param-name>key1</param-name>
+        <param-value>value1</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>key2</param-name>
+        <param-value>value2</param-value>
+    </context-param>
+
     <servlet>
         <servlet-name>Login-Controller</servlet-name>
         <servlet-class>org.koreait.member.controllers.LoginController</servlet-class>
