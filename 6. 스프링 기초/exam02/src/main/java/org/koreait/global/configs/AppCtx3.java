@@ -31,7 +31,7 @@ public class AppCtx3 {
         return new InfoService();
     }
 
-    @Bean
+    //@Bean
     public DateTimeFormatter formatter() {
         return DateTimeFormatter.ofPattern("yyyy.MM.dd HH:mm");
     }
