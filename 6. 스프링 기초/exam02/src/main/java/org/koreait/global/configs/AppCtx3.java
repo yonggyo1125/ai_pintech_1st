@@ -7,6 +7,8 @@ import org.koreait.member.validators.JoinValidator;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import java.time.format.DateTimeFormatter;
+
 @Configuration
 public class AppCtx3 {
     @Bean
@@ -27,5 +29,10 @@ public class AppCtx3 {
     @Bean
     public InfoService infoService() {
         return new InfoService();
+    }
+
+    @Bean
+    public DateTimeFormatter formatter() {
+        return DateTimeFormatter.ofPattern("yyyy.MM.dd HH:mm");
     }
 }

@@ -3,19 +3,19 @@ package org.koreait.member.services;
 import org.koreait.member.controllers.RequestJoin;
 import org.koreait.member.repositories.MemberRepository;
 import org.koreait.member.validators.JoinValidator;
+import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * 회원 가입 기능
  */
 public class JoinService {
 
+    @Autowired
     public JoinValidator validator;
+
+    @Autowired
     public MemberRepository repository;
 
-    public JoinService(JoinValidator validator, MemberRepository repository) {
-        this.validator = validator;
-        this.repository = repository;
-    }
 
     /**
      * 가입 처리
