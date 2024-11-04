@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Configuration;
 public class AppCtx {
 
     @Bean
-    public JoinValidator joinValidator() {
+    public JoinValidator joinValidator() { // 메서드 명이 기본 빈의 이름
         return new JoinValidator();
     }
 
