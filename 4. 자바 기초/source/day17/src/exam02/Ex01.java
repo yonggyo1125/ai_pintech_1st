@@ -14,7 +14,5 @@ public class Ex01 {
         List<String> items2 = List.of("항목1", "항목2", "항목2", "항목2", "항목3", "항목4", "항목5"); // 컬렉션
 
         items2.stream().distinct().map(s -> String.format("*%s*", s)).forEach(System.out::println);
-
-        Optional<String> opt = Optional.ofNullable("항목1");
     }
 }
