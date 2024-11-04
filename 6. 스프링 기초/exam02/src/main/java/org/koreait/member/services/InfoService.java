@@ -8,6 +8,7 @@ import org.springframework.lang.Nullable;
 
 import java.time.format.DateTimeFormatter;
 import java.util.List;
+import java.util.Optional;
 
 public class InfoService {
 
@@ -15,9 +16,16 @@ public class InfoService {
 
     private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yy-MM-dd");
 
+    /*
     @Autowired
-    public void setRepository(@Qualifier("mRepo") MemberRepository repository) {
-        this.repository = repository;
+    public void setRepository(/*@Qualifier("mRepo")MemberRepository repository) {
+    //    this.repository = repository;
+    //}
+    */
+
+    @Autowired
+    public void setRepository(Optional<MemberRepository> opt) {
+        this.repository = opt.get();
     }
 
     //@Autowired(required = false)

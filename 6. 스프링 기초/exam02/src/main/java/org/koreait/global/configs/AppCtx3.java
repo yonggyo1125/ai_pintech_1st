@@ -18,16 +18,18 @@ public class AppCtx3 {
     }
 
     @Bean
-    @Qualifier("mRepo")
+   // @Qualifier("mRepo")
     public MemberRepository memberRepository() {
         return new MemberRepository();
     }
 
+    /*
     @Bean
     @Qualifier("mRepo2")
     public MemberRepository memberRepository2() {
         return new MemberRepository();
     }
+    */
 
     @Bean
     public JoinService joinService() {

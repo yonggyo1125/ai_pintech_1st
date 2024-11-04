@@ -15,7 +15,7 @@ public class JoinService {
     public JoinValidator validator;
 
     @Autowired
-    @Qualifier("mRepo2")
+    //@Qualifier("mRepo2")
     public MemberRepository repository;
 
 
