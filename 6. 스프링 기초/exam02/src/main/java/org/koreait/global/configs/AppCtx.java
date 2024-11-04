@@ -6,8 +6,10 @@ import org.koreait.member.services.JoinService;
 import org.koreait.member.validators.JoinValidator;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
 
 @Configuration
+@Import(AppCtx2.class)
 public class AppCtx {
 
     @Bean
@@ -19,7 +21,7 @@ public class AppCtx {
     public MemberRepository memberRepository() {
         return new MemberRepository();
     }
-    
+
     @Bean
     public JoinService joinService() {
         return new JoinService(joinValidator(), memberRepository());

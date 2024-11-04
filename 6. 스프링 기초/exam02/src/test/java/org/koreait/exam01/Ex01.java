@@ -2,10 +2,14 @@ package org.koreait.exam01;
 
 import org.junit.jupiter.api.Test;
 import org.koreait.global.configs.AppCtx;
+import org.koreait.global.configs.AppCtx2;
 import org.koreait.member.controllers.RequestJoin;
 import org.koreait.member.services.InfoService;
 import org.koreait.member.services.JoinService;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class Ex01 {
     @Test
@@ -27,6 +31,19 @@ public class Ex01 {
         service.process(form); // 회원 가입 처리
 
         infoService.print(); // 가입한 회원 목록 출력
+
+        ctx.close();
+    }
+
+    @Test
+    void test2() {
+        //AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(AppCtx.class, AppCtx2.class);
+
+        AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(AppCtx.class);
+
+        DateTimeFormatter formatter = ctx.getBean(DateTimeFormatter.class);
+        String str = formatter.format(LocalDateTime.now());
+        System.out.println(str);
 
         ctx.close();
     }
