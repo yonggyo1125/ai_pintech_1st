@@ -3,6 +3,8 @@ package org.koreait.member.services;
 import org.koreait.member.entities.Member;
 import org.koreait.member.repositories.MemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.lang.Nullable;
 
 import java.time.format.DateTimeFormatter;
 import java.util.List;
@@ -11,15 +13,16 @@ public class InfoService {
 
     private MemberRepository repository;
 
-    private DateTimeFormatter formatter;
+    private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yy-MM-dd");
 
     @Autowired
-    public void setRepository(MemberRepository repository) {
+    public void setRepository(@Qualifier("mRepo") MemberRepository repository) {
         this.repository = repository;
     }
 
+    //@Autowired(required = false)
     @Autowired
-    public void setFormatter(DateTimeFormatter formatter) {
+    public void setFormatter(@Nullable DateTimeFormatter formatter) {
         this.formatter = formatter;
     }
 
