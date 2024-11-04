@@ -2,6 +2,7 @@ package org.koreait.member.services;
 
 import org.koreait.global.validators.Validator;
 import org.koreait.member.controllers.RequestJoin;
+import org.koreait.member.repositories.MemberRepository;
 import org.koreait.member.validators.AdvancedJoinValidator;
 import org.koreait.member.validators.JoinValidator;
 
@@ -10,7 +11,8 @@ import org.koreait.member.validators.JoinValidator;
  */
 public class JoinService {
 
-    private Validator<RequestJoin> validator;
+    private final Validator<RequestJoin> validator;
+    private final MemberRepository repository;
 
     /**
      * 의존 관계
@@ -18,8 +20,9 @@ public class JoinService {
      *
      * @param validator
      */
-    public JoinService(Validator<RequestJoin> validator) {
+    public JoinService(Validator<RequestJoin> validator, MemberRepository repository) {
         this.validator = validator;
+        this.repository = repository;
     }
 
     /**
@@ -33,6 +36,11 @@ public class JoinService {
     }
     */
     public void process(RequestJoin form) {
+
+        // form, joinService에 서로 영향을 주고 받는 관계 - 변화에 영향을 받는다 -
+        // 통제가 필요! - 메서드 안에 감출필요! 캡슐화! / 변화에 닫힌 구조!
         validator.check(form);
+
+
     }
 }
