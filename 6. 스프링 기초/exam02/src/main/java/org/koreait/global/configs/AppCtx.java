@@ -19,7 +19,7 @@ public class AppCtx {
     public MemberRepository memberRepository() {
         return new MemberRepository();
     }
-
+    
     @Bean
     public JoinService joinService() {
         return new JoinService(joinValidator(), memberRepository());
