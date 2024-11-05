@@ -17,5 +17,6 @@ public class Ex01 {
         long result2 = cal2.factorial(10L);
         System.out.printf("cal2: %d%n", result2);
         etime = System.nanoTime();
+        System.out.printf("cal2 걸린시간: %d%n", etime - stime);
     }
 }
