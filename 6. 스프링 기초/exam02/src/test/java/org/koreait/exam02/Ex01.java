@@ -12,6 +12,8 @@ public class Ex01 {
     @Test
     void test1() {
         AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(AppCtx4.class);
+        // 객체 생성 -> 의존 설정
+
         JoinService joinService = ctx.getBean(JoinService.class);
         InfoService infoService = ctx.getBean(InfoService.class);
 
