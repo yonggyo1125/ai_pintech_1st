@@ -11,6 +11,7 @@ public class AppCtx4 {
 
     @Bean
     public MemberRepository memberRepository() {
+        System.out.println("호출!");
         return new MemberRepository();
     }
 }
