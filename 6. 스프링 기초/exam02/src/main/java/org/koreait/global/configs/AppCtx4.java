@@ -8,10 +8,10 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @ComponentScan("org.koreait.member")
 public class AppCtx4 {
-
+    /*
     @Bean
     public MemberRepository memberRepository() {
         System.out.println("호출!");
         return new MemberRepository();
-    }
+    } */
 }
