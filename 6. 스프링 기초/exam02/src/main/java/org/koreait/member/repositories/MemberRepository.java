@@ -15,7 +15,7 @@ import java.util.Map;
  *
  */
 @Repository
-public class MemberRepository {
+public class MemberRepository { // memberRepository
 
     private static final Map<String, Member> members = new HashMap<>();
 

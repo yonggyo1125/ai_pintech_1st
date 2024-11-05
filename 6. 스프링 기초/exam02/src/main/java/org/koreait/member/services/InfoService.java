@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class InfoService {
+public class InfoService { // 빈의 이름 - infoService`
 
     private MemberRepository repository;
 
