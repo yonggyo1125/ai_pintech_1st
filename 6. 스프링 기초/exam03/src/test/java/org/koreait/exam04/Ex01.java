@@ -9,7 +9,7 @@ public class Ex01 {
     void test1() {
         AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(AppCtx.class);
 
-        Calculator cal = ctx.getBean(Calculator.class);
+        RecCalculator cal = ctx.getBean(RecCalculator.class);
 
         long result = cal.factorial(10L);
         System.out.println(result);

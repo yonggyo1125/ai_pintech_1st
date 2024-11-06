@@ -9,6 +9,12 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import javax.swing.*;
 
 @Configuration
+/**
+ * 서브클래스 기반의 프록시 변환
+ * 자바 표준은 인터페이스 기반의 프록시 이다.
+ * 스프링쪽에는 기능을 확장해서 서브클래스 기반 프록시도 구현!
+  */
+//@EnableAspectJAutoProxy(proxyTargetClass = true)
 @EnableAspectJAutoProxy
 public class AppCtx {
 
@@ -21,4 +27,10 @@ public class AppCtx {
     public Calculator calculator() {
         return new RecCalculator();
     }
+
+    /*
+    @Bean
+    public RecCalculator calculator() {
+        return new RecCalculator();
+    } */
 }
