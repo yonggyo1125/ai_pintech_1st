@@ -15,11 +15,14 @@ public class SpringProxyCalculator {
 
     @Around("publicTarget()")
     public Object process(ProceedingJoinPoint joinPoint) throws Throwable {
+        long stime = System.nanoTime();
+        try {
+            Object result = joinPoint.proceed(); // 핵심 기능을 대신 수행
 
-        Object result = joinPoint.proceed(); // 핵심 기능을 대신 수행
-
-        System.out.println("호출!!!");
-
-        return result;
+            return result;
+        } finally {
+            long etime = System.nanoTime();
+            System.out.printf("걸린시간: %d%n", etime - stime);
+        }
     }
 }
