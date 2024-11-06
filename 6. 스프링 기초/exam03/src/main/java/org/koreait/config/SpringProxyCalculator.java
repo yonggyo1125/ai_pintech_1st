@@ -9,10 +9,7 @@ import org.springframework.core.annotation.Order;
 @Aspect
 public class SpringProxyCalculator {
 
-    @Pointcut("execution(* org.koreait.exam04..*(..))")
-    public void publicTarget() {
 
-    }
 
     /*
     @Before("publicTarget()")
@@ -25,7 +22,8 @@ public class SpringProxyCalculator {
         System.out.println("@After!!");
     }
     */
-    @Around("publicTarget()")
+    //@Around("publicTarget()")
+    @Around("CommonPointcut.publicTarget()")
     public Object process(ProceedingJoinPoint joinPoint) throws Throwable {
         long stime = System.nanoTime();
         try {

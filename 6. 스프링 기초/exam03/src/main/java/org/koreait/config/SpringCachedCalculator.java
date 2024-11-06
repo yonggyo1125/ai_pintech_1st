@@ -15,10 +15,12 @@ public class SpringCachedCalculator {
 
     private Map<Long, Object> cache = new HashMap<>();
 
-    @Pointcut("execution(* org.koreait.exam04..*(..))")
-    public void publicTarget() {}
+    //@Pointcut("execution(* org.koreait.exam04..*(..))")
+    //public void publicTarget() {}
 
-    @Around("publicTarget()")
+    @Around("CommonPointcut.publicTarget()")
+    //@Around("publicTarget()")
+    //@Around("execution(* org.koreait.exam04..*(..))")
     public Object process(ProceedingJoinPoint joinPoint) throws Throwable {
         Object[] args = joinPoint.getArgs();
         long num = (long)args[0];
