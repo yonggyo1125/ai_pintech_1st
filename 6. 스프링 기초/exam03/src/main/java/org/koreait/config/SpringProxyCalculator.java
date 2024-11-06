@@ -3,7 +3,9 @@ package org.koreait.config;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
+import org.springframework.core.annotation.Order;
 
+@Order(2)
 @Aspect
 public class SpringProxyCalculator {
 
