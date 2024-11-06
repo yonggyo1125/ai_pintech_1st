@@ -8,10 +8,13 @@ public class Ex01 {
     @Test
     void test1() {
         Class<RecCalculator> clazz = RecCalculator.class;
-        Calculator cal = (Calculator) Proxy.newProxyInstance(
+        RecCalculator cal = (RecCalculator) Proxy.newProxyInstance(
                 clazz.getClassLoader(),
-                new Class[] { clazz },
+                new Class[] { Calculator.class },
                 new PerformanceHandler(clazz)
         );
+
+        long result = cal.factorial(10L);
+        System.out.println(result);
     }
 }
