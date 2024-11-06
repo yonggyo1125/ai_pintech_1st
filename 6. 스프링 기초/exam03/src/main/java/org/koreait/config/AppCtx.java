@@ -19,6 +19,11 @@ import javax.swing.*;
 public class AppCtx {
 
     @Bean
+    public SpringCachedCalculator springCachedCalculator() {
+        return new SpringCachedCalculator();
+    }
+
+    @Bean
     public SpringProxyCalculator springProxyCalculator() {
         return new SpringProxyCalculator();
     }
