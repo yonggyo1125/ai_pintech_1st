@@ -13,6 +13,7 @@ public class Ex02 {
             b.setAuthor("저자1");
             return b;
         });
+        Book book4 = opt.orElseGet(Book::new);
 
         System.out.println(book2);
         System.out.println(book3);
