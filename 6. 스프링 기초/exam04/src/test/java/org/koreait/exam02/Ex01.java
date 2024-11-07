@@ -43,9 +43,7 @@ public class Ex01 {
     @DisplayName("SELECT 쿼리 테스트 - 전체 목록")
     void test3() {
         String sql = "SELECT * FROM MEMBER";
-        List<Member> members = jdbcTemplate.query(sql, new RowMapper<Member>() {
-            @Override
-            public Member mapRow(ResultSet rs, int rowNum) throws SQLException {
+        List<Member> members = jdbcTemplate.query(sql, (rs, i) -> {
 
                 Member member = new Member();
                 member.setSeq(rs.getLong("SEQ"));
@@ -63,5 +61,6 @@ public class Ex01 {
             }
         });
 
+        members.forEach(System.out::println);
     }
 }
