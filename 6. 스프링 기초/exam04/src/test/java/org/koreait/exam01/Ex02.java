@@ -53,6 +53,8 @@ public class Ex02 {
         HikariDataSource ds = new HikariDataSource(config);
         try (Connection conn = ds.getConnection()) {
 
+            System.out.println(conn);
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
