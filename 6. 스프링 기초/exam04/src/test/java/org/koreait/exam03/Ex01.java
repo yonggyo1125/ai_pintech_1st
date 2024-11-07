@@ -34,4 +34,10 @@ public class Ex01 {
         Member member = repository.findByEmail("user03@test.org").get();
         System.out.println(member);
     }
+
+    @Test
+    void test4() {
+        List<Member> items = repository.findByUsernameContainingOrderBySeqDesc("사용");
+        items.forEach(System.out::println);
+    }
 }
