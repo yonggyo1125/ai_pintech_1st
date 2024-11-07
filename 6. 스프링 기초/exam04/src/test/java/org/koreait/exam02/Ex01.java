@@ -12,6 +12,7 @@ import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.util.List;
 
 @SpringJUnitConfig
@@ -45,7 +46,20 @@ public class Ex01 {
         List<Member> members = jdbcTemplate.query(sql, new RowMapper<Member>() {
             @Override
             public Member mapRow(ResultSet rs, int rowNum) throws SQLException {
-                return null;
+
+                Member member = new Member();
+                member.setSeq(rs.getLong("SEQ"));
+                member.setEmail(rs.getString("EMAIL"));
+                member.setPassword(rs.getString("PASSWORD"));
+                member.setUsername(rs.getString("USERNAME"));
+                member.setRegdt(rs.getTimestamp("regdt").toLocalDateTime());
+
+                Timestamp modDt = rs.getTimestamp("moddt");
+                if (modDt != null) {
+                    member.setModdt(modDt.toLocalDateTime());
+                }
+
+                return member;
             }
         });
 

@@ -11,5 +11,5 @@ public class Member {
     private String password;
     private String username;
     private LocalDateTime regdt;
-    private LocalDateTime modDt;
+    private LocalDateTime moddt;
 }
