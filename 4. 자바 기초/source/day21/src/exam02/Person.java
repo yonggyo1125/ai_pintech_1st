@@ -1,6 +1,8 @@
 package exam02;
 
-public class Person {
+import java.io.Serializable;
+
+public class Person implements Serializable { // 마커 인터페이스
     private String name;
     private int age;
 
