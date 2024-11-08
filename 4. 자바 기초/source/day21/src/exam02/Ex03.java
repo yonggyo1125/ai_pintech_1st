@@ -9,6 +9,9 @@ public class Ex03 {
         try (FileInputStream fis = new FileInputStream("obj1.txt");
             ObjectInputStream ois = new ObjectInputStream(fis)) {
 
+            String message = (String)ois.readObject();
+            System.out.println(message);
+
             Person p1 = (Person)ois.readObject();
             System.out.println(p1);
 

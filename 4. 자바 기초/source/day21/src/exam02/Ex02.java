@@ -11,6 +11,11 @@ public class Ex02 {
             Person p1 = new Person("이이름", 40);
             oos.writeObject(p1);
 
+            Person p2 = new Person("김이름", 30);
+            oos.writeObject(p2);
+
+            oos.writeObject("안녕하세요.");
+
         } catch (IOException e) {
             e.printStackTrace();
         }
