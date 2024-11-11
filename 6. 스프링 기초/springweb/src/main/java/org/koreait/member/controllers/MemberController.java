@@ -5,6 +5,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -29,12 +30,13 @@ public class MemberController {
 
      /*   return "member/form";
      } */
-
+    /*
     @GetMapping("/member/login")
     public ModelAndView login() {
         ModelAndView mv = new ModelAndView();
 
-        mv.setViewName("member/form");
+        mv.addObject("message", "안녕하세요.");
+        mv.setViewName("member/form"); // 템플릿 경로
 
         return mv;
     }
@@ -57,6 +59,14 @@ public class MemberController {
         return "member/form";
     }
     */
+
+    @GetMapping("/member/login")
+    public String login(Model model) {
+        model.addAttribute("message", "안녕하세요.");
+
+        return "member/form";
+    }
+
     @PostMapping("/member/login")
     public String loginPs(RequestLogin form) {
 
