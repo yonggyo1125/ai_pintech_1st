@@ -17,9 +17,18 @@ public class MemberController {
     }
 
     @PostMapping("/member/login")
-    public String loginPs(@RequestParam("email") String email, @RequestParam("password") String pass, @RequestParam("saveEmail") boolean saveEmail) {
+    public String loginPs(RequestLogin form) {
+
+        System.out.println(form);
+
+        return "member/form";
+    }
+
+    /*
+    @PostMapping("/member/login")
+    public String loginPs(@RequestParam("email") String email, @RequestParam("password") String pass, @RequestParam(name="saveEmail", required = false) boolean saveEmail) {
         System.out.println("회원가입 처리쪽 유입!!");
         System.out.printf("email=%s, password=%s, saveEmail=%s%n", email, pass, saveEmail);
         return "member/form";
-    }
+    } */
 }
