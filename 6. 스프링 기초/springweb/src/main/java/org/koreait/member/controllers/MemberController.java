@@ -25,6 +25,8 @@ public class MemberController {
     // headers는 요청 헤더에 Authorization 값이 있는 경우만 유입
     //@GetMapping(path="/login", headers = "Authorization")
     @GetMapping("/login")
+    // produces = "application/json" - 응답 헤더 Content-Type: application/json
+    //@GetMapping(path="/login", produces = "application/json")
     public String login() {
 
         System.out.println("로그인 양식!");
@@ -41,13 +43,19 @@ public class MemberController {
 
 
     @GetMapping("/join") //  /member/join
-    public String join() {
+    public String join() { // 회원가입 양식
 
         return "member/joinForm";
     }
 
     @PostMapping("/join") // /member/join
-    public String joinPs() {
+    public String joinPs() { // 회원 가입 처리
+
+        /**
+         * 회원 가입 처리 완료 후  주소 이동(로그인 페이지)
+         * 응답 헤더 Location: /springweb/member/login
+         * response.sendRedirect(request.getContextPath() + "/member/login");
+         */
 
         return "member/joinForm";
     }
