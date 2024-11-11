@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
+@RequestMapping("/member")
 public class MemberController {
 
     //@GetMapping("/member/login")
@@ -18,25 +19,25 @@ public class MemberController {
         return "member/form";
     } */
 
-    @GetMapping("/member/login")
+    @GetMapping("/login")   // /member/login
     public String login() {
 
         return "member/form";
     }
 
-    @PostMapping("/member/login")
+    @PostMapping("/login")   // /member/login
     public String loginPs() {
 
         return "member/form";
     }
 
-    @GetMapping("/member/join")
+    @GetMapping("/join") //  /member/join
     public String join() {
 
         return "member/joinForm";
     }
 
-    @PostMapping("/member/join")
+    @PostMapping("/join") // /member/join
     public String joinPs() {
 
         return "member/joinForm";
