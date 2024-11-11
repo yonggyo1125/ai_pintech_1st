@@ -49,7 +49,8 @@ public class MemberController {
     }
 
     @PostMapping("/join") // /member/join
-    public String joinPs() { // 회원 가입 처리
+    public String joinPs(RequestJoin form) { // 회원 가입 처리
+        System.out.println(form);
 
         /**
          * 회원 가입 처리 완료 후  주소 이동(로그인 페이지)
@@ -58,6 +59,8 @@ public class MemberController {
          * response.sendRedirect(request.getContextPath() + "/member/login");
          */
 
-        return "redirect:/member/login";  // 응답 헤더 Location: /springweb/member/login
+        return "member/joinForm";
+        //return "redirect:/member/login";  // 응답 헤더 Location: /springweb/member/login
+       // return "forward:/member/login"; // RequestDispatcher rd = request.getReqestDispatcher("....");  rd.forward(request, response);...
     }
 }
