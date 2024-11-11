@@ -13,5 +13,9 @@
             <input type="password" name="password">
         </dd>
     </dl>
+    <div>
+        <input type='checkbox' name='saveEmail' value="true" id="saveEmail">
+        <label for="saveEmail">이메일 기억하기</label>
+    </div>
     <button type="submit">로그인</button>
 </form>
