@@ -19,8 +19,15 @@ public class MemberController {
         return "member/form";
     } */
 
-    @GetMapping("/login")   // /member/login
+    // /member/login?type=어떤 값
+    //@GetMapping(path="/login", params={"type"})   // /member/login
+
+    // headers는 요청 헤더에 Authorization 값이 있는 경우만 유입
+    //@GetMapping(path="/login", headers = "Authorization")
+    @GetMapping("/login")
     public String login() {
+
+        System.out.println("로그인 양식!");
 
         return "member/form";
     }
@@ -30,6 +37,8 @@ public class MemberController {
 
         return "member/form";
     }
+
+
 
     @GetMapping("/join") //  /member/join
     public String join() {
