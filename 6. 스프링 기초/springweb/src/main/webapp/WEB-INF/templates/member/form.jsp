@@ -1,6 +1,6 @@
 <%@ page contentType='text/html; charset=UTF-8' %>
 <h1>로그인 페이지</h1>
-<form method="POST" action="join">
+<form method="POST" action="login">
     <dl>
         <dt>이메일</dt>
         <dd>
