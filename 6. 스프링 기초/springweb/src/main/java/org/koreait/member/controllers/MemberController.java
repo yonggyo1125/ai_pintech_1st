@@ -1,6 +1,7 @@
 package org.koreait.member.controllers;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -49,8 +50,10 @@ public class MemberController {
     }
 
     @PostMapping("/join") // /member/join
-    public String joinPs(RequestJoin form) { // 회원 가입 처리
-        System.out.println(form);
+    public String joinPs(RequestJoin form/*, Model model */) { // 회원 가입 처리
+        System.out.println(form); // 커맨드 객체는 자동으로 EL 속성으로 추가, 속성명이 클래스명, 앞자는 소문자 RequestJoin -> requestJoin
+
+        //model.addAttribute("requestJoin", form);
 
         /**
          * 회원 가입 처리 완료 후  주소 이동(로그인 페이지)

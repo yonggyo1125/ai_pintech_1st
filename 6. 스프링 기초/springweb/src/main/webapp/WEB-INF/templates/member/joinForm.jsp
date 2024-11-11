@@ -1,4 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
+${requestJoin}
 <form method="post" action="join">
     <dl>
         <dt>이메일</dt>
