@@ -19,5 +19,21 @@ ${requestJoin}
             <input type="password" name="confirmPassword">
         </dd>
     </dl>
+
+    <dl>
+        <dt>취미</dt>
+        <dd>
+            <label>
+                <input type="checkbox" name="hobby" value="취미1">취미1
+            </label>
+            <label>
+                <input type="checkbox" name="hobby" value="취미2">취미2
+            </label>
+            <label>
+                <input type="checkbox" name="hobby" value="취미3">취미3
+            </label>
+        </dd>
+    </dl>
+
     <button type="submit">가입하기</button>
 </form>
