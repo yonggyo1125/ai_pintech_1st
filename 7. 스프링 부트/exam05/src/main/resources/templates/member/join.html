@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
     <body>
-
+        <div th:text="${@ut.hello(requestJoin.name)}"></div>
         <div th:text="${#messages.msg('LOGIN_MSG', requestJoin.name, requestJoin.email)}"></div>
 
         <form method="POST" th:action="@{/member/join}" th:object="${requestJoin}">
