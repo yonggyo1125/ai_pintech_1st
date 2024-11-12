@@ -4,6 +4,7 @@
         <table border="1">
             <thead>
                 <tr>
+                    <th>순번</th>
                     <th>이메일</th>
                     <th>회원명</th>
                     <th>가일일시</th>
@@ -11,7 +12,14 @@
                 </tr>
             </thead>
             <tbody>
-                <tr th:each="member : ${members}">
+                <tr th:each="member, status : ${members}">
+                    <td>
+                        <th:block th:text="${status.count}"></th:block>
+                        [첫번째:<span th:text="${status.first}"></span>]
+                        [마지막:<span th:text="${status.last}"></span>]
+                        [홀수: <span th:text="${status.odd}"></span>]
+                        [짝수: <span th:text="${status.even}"></span>]
+                    </td>
                     <td th:text="${member.email}"></td>
                     <td th:text="${member.name}"></td>
                     <td th:text="${member.regDt}"></td>
