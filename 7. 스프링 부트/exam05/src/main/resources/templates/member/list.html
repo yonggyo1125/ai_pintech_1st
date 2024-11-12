@@ -17,8 +17,14 @@
                         <th:block th:text="${status.count}"></th:block>
                         [첫번째:<th:block th:text="${status.first}"></th:block>]
                         [마지막:<span th:text="${status.last}"></span>]
+                        <th:block th:switch="${status.odd}">
+                            <span th:case="true">[홀수]</span>
+                            <span th:case="false">[짝수]</span>
+                        </th:block>
+                        <!--
                         <span th:if="${status.odd}">[홀수]</span>
-                        <span th:if="${status.even}">[짝수]</span>
+                        <span th:unless="${status.odd}">[짝수]</span> -->
+                        <!--<span th:if="${status.even}">[짝수]</span>-->
                         <!--
                         [홀수: <span th:text="${status.odd}"></span>]
                         [짝수: <span th:text="${status.even}"></span>] -->
