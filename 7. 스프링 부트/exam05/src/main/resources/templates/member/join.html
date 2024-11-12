@@ -1,6 +1,8 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-    <body>
+<html xmlns:th="http://www.thymeleaf.org"
+        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+        layout:decorate="~{layouts/main}">
+    <main layout:fragment="content">
         <div th:text="${@ut.hello(requestJoin.name)}"></div>
         <div th:text="${#messages.msg('LOGIN_MSG', requestJoin.name, requestJoin.email)}"></div>
 
@@ -26,5 +28,5 @@
                th:text="#{로그인}"></a>
             <a th:href="@{/member/findId/{em}(em=*{email})}" th:text="#{아이디_찾기}"></a>
         </form>
-    </body>
+    </main>
 </html>
