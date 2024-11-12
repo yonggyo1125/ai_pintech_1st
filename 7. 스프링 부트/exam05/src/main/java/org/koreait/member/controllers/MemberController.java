@@ -43,7 +43,7 @@ public class MemberController {
                     Member member = new Member();
                     member.setSeq(i);
                     member.setEmail("user" + i + "@test.org");
-                    member.setName("사용자" + i);
+                    member.setName("<h1>사용자" + i + "</h1>");
                     member.setPassword("12345678");
                     member.setRegDt(LocalDateTime.now());
                     member.setModDt(LocalDateTime.now());

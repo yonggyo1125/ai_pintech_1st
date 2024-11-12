@@ -12,11 +12,11 @@
                 </tr>
             </thead>
             <tbody>
-                <tr th:each="member, status : ${members}">
+                <tr th:each="member, status : ${members}" th:object="${member}">
                     <td>
                         <th:block th:text="${status.count}"></th:block>
                         [첫번째:<th:block th:text="${status.first}"></th:block>]
-                        [마지막:<span th:text="${status.last}"></span>]
+                        [마지막: [[${status.last}]]]
                         <th:block th:switch="${status.odd}">
                             <span th:case="true">[홀수]</span>
                             <span th:case="false">[짝수]</span>
@@ -29,10 +29,11 @@
                         [홀수: <span th:text="${status.odd}"></span>]
                         [짝수: <span th:text="${status.even}"></span>] -->
                     </td>
-                    <td th:text="${member.email}"></td>
-                    <td th:text="${member.name}"></td>
-                    <td th:text="${member.regDt}"></td>
-                    <td th:text="${member.modDt}"></td>
+                    <td th:text="*{#strings.toUpperCase(email)}"></td>
+                    <!--<td th:utext="*{name + '(' + email + ')'}"></td>-->
+                    <td th:utext="*{#strings.concat(name, '(', email, ')')}"></td>
+                    <td th:text="*{#temporals.format(regDt, 'yyyy.MM.dd')}"></td>
+                    <td th:text="*{#temporals.format(modDt, 'yyyy.MM.dd')}"></td>
                 </tr>
             </tbody>
         </table>

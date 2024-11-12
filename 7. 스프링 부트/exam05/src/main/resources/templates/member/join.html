@@ -2,6 +2,8 @@
 <html xmlns:th="http://www.thymeleaf.org">
     <body>
 
+        <div th:text="${#messages.msg('LOGIN_MSG', requestJoin.name, requestJoin.email)}"></div>
+
         <form method="POST" th:action="@{/member/join}" th:object="${requestJoin}">
             <dl>
                 <dt th:text="#{이메일}"></dt>
