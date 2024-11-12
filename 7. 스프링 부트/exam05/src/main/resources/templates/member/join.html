@@ -4,7 +4,7 @@
 
         <form method="POST" th:action="@{/member/join}" th:object="${requestJoin}">
             <dl>
-                <dt>이메일</dt>
+                <dt th:text="#{EMAIL}">2222</dt>
                 <dd th:text="*{email}">yonggyo00@kakao.com</dd>
             </dl>
             <dl>
