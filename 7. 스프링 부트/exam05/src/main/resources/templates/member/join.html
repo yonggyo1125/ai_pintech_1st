@@ -1,23 +1,27 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
     <body>
-        <form method="POST" action="join">
+
+        <form method="POST" th:action="@{/member/join}" th:object="${requestJoin}">
             <dl>
                 <dt>이메일</dt>
-                <dd th:text="${requestJoin.email}">yonggyo00@kakao.com</dd>
+                <dd th:text="*{email}">yonggyo00@kakao.com</dd>
             </dl>
             <dl>
                 <dt>비밀번호</dt>
-                <dd th:text="${requestJoin.password}">23456789</dd>
+                <dd th:text="*{password}">23456789</dd>
             </dl>
             <dl>
                 <dt>비밀번호 확인</dt>
-                <dd th:text="${requestJoin.confirmPassword}">23456789</dd>
+                <dd th:text="*{confirmPassword}">23456789</dd>
             </dl>
             <dl>
                 <dt>회원명</dt>
-                <dd th:text="${requestJoin.name}">이이름</dd>
+                <dd th:text="*{name}">이이름</dd>
             </dl>
+            <button type="submit">가입하기</button>
+            <a th:href="@{/member/login(param1=*{email}, param2=*{password})}">로그인</a>
+            <a th:href="@{/member/findId/{em}(em=*{email})}">아이디 찾기</a>
         </form>
     </body>
 </html>
