@@ -11,4 +11,6 @@ public class RequestJoin {
     private String confirmPassword;
     //private String[] hobby;
     private List<String> hobby;
+
+    private RequestAddress addr; // 중첩된 커맨드 객체
 }

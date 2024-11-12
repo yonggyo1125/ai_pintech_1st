@@ -35,5 +35,14 @@ ${requestJoin}
         </dd>
     </dl>
 
+    <dl>
+        <dt>주소</dt>
+        <dd>
+            <input type="text" name="addr.zipcode" placeholder="우편번호">
+            <input type="text" name="addr.address" placeholder="주소">
+            <input type="text" name="addr.addressSub" placeholder="나머지 주소">
+        </dd>
+    </dl>
+
     <button type="submit">가입하기</button>
 </form>
