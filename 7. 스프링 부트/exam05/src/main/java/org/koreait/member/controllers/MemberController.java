@@ -42,6 +42,7 @@ public class MemberController {
                 .mapToObj(i -> {
                     Member member = new Member();
                     member.setSeq(i);
+                    member.setEmail("user" + i + "@test.org");
                     member.setName("사용자" + i);
                     member.setPassword("12345678");
                     member.setRegDt(LocalDateTime.now());

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <body>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>이메일</th>
+                    <th>회원명</th>
+                    <th>가일일시</th>
+                    <th>수정일시</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="member : ${members}">
+                    <td th:text="${member.email}"></td>
+                    <td th:text="${member.name}"></td>
+                    <td th:text="${member.regDt}"></td>
+                    <td th:text="${member.modDt}"></td>
+                </tr>
+            </tbody>
+        </table>
+    </body>
+</html>
