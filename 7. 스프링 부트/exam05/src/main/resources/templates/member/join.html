@@ -4,19 +4,19 @@
         <form method="POST" action="join">
             <dl>
                 <dt>이메일</dt>
-                <dd>yonggyo00@kakao.com</dd>
+                <dd th:text="${requestJoin.email}">yonggyo00@kakao.com</dd>
             </dl>
             <dl>
                 <dt>비밀번호</dt>
-                <dd>12345678</dd>
+                <dd th:text="${requestJoin.password}">23456789</dd>
             </dl>
             <dl>
                 <dt>비밀번호 확인</dt>
-                <dd>12345678</dd>
+                <dd th:text="${requestJoin.confirmPassword}">23456789</dd>
             </dl>
             <dl>
                 <dt>회원명</dt>
-                <dd>이이름</dd>
+                <dd th:text="${requestJoin.name}">이이름</dd>
             </dl>
         </form>
     </body>
