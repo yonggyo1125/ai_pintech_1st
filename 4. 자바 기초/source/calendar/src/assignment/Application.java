@@ -22,7 +22,7 @@ public class Application {
             int yoil = sDate.getDayOfWeek().getValue() % 7;
 
             // 출력
-            System.out.println("일 월 화 수 목 금 토 일");
+            System.out.println("일  월  화  수  목  금  토");
             System.out.println("---------------------");
 
             for (int i = -yoil + 1, j = 1; i <= endOfMonth; i++, j++) {
