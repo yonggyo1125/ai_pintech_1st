@@ -3,6 +3,7 @@ package org.koreait.member.controllers;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.koreait.member.services.LoginService;
 import org.koreait.member.validators.JoinValidator;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,6 +22,7 @@ import java.util.List;
 public class MemberController {
 
     private final JoinValidator joinValidator;
+    private final LoginService loginService;
 
     /**
      * 회원가입 양식
@@ -81,7 +83,8 @@ public class MemberController {
             return "member/login";
         }
 
-
+        // 검증에 이상이 없는 상태 -> 로그인 처리
+        loginService.process(form);
 
         return "redirect:/";
     }
