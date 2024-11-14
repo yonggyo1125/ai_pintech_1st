@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorate="~{layouts/main}">
+
+    <main layout:fragment="content">
+        <form method="POST" th:action="@{/member/join}" autocomplete="off">
+            <dl>
+                <dt th:text="#{이메일}"></dt>
+                <dd>
+                    <input type="text" name="email">
+                </dd>
+            </dl>
+            <dl>
+                <dt th:text="#{비밀번호}"></dt>
+                <dd>
+                    <input type="password" name="password">
+                </dd>
+            </dl>
+            <dl>
+                <dt th:text="#{비밀번호_확인}"></dt>
+                <dd>
+                    <input type="password" name="confirmPassword">
+                </dd>
+            </dl>
+        </form>
+    </main>
+
+</html>

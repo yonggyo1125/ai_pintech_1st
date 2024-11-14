@@ -23,7 +23,7 @@ public class MemberController {
      * @return
      */
     @PostMapping("/join")
-    public String joinPs() {
+    public String joinPs(RequestJoin form) {
 
         return "member/joinForm"; // 임시
     }
