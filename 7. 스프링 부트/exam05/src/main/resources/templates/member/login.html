@@ -21,7 +21,7 @@
             </dd>
         </dl>
         <div>
-            <input type="checkbox" name="saveEmail" value="true" id="saveEmail">
+            <input type="checkbox" name="saveEmail" value="true" id="saveEmail" th:field="*{saveEmail}">
             <label for="saveEmail" th:text="#{이메일_기억하기}"></label>
         </div>
         <button type="submit" th:text="#{로그인}"></button>
