@@ -4,10 +4,14 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.koreait.member.validators.JoinValidator;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import java.util.List;
 
 @Slf4j
 @Controller
@@ -22,8 +26,24 @@ public class MemberController {
      *
      * @return
      */
+    /*
     @GetMapping("/join")
-    public String join() {
+    public String join(Model model) {
+
+        RequestJoin requestJoin = new RequestJoin();
+        model.addAttribute("requestJoin", requestJoin);
+
+        return "member/joinForm";
+    }
+    */
+    @ModelAttribute("apples")
+    public List<String> apples() {
+        return List.of("사과1", "사과2", "사과3");
+    }
+
+    @GetMapping("/join")
+    public String join(@ModelAttribute RequestJoin form, Model model) { // RequestJoin - requestJoin
+
         return "member/joinForm";
     }
 
