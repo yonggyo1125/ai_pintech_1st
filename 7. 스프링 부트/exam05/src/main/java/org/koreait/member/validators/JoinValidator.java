@@ -82,5 +82,10 @@ public class JoinValidator implements Validator {
                 && !password.equals(confirmPassword)) {
             errors.rejectValue("confirmPassword", "Mismatch");
         }
+
+        boolean result = false;
+        if (!result) {
+            errors.reject("Fail.join"); // 특정 필드가 아닌 일반적인 검증 실패
+        }
     }
 }
