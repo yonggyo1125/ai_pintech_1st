@@ -7,8 +7,10 @@ import org.koreait.member.validators.JoinValidator;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
-import org.springframework.web.bind.WebDataBinder;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
 
@@ -55,7 +57,7 @@ public class MemberController {
     @PostMapping("/join")
     public String joinPs(@Valid RequestJoin form, Errors errors) {
 
-        //joinValidator.validate(form, errors); // 커맨드 객체 검증
+        joinValidator.validate(form, errors); // 커맨드 객체 검증
 
         if (errors.hasErrors()) { // 검증 실패! - reject, rejectValue가 한번이라도 호출 되었다!
             return "member/joinForm"; // 검증 실패하면 사용자에게 양식을 다시 보여주고, 검증 실패 정보를 제공!
@@ -78,8 +80,9 @@ public class MemberController {
      *
      * @param binder
      */
+    /*
     @InitBinder
     public void initBinder(WebDataBinder binder) {
         binder.setValidator(joinValidator);
-    }
+    } */
 }
