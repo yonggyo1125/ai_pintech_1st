@@ -3,6 +3,7 @@ package org.koreait.member.validators;
 import org.koreait.member.controllers.RequestJoin;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
+import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
 
 @Component
@@ -58,15 +59,28 @@ public class JoinValidator implements Validator {
         if (!agree) { // 약관에 동의하지 않은 경우!
             errors.rejectValue("agree", "Agree", "회원가입 약관에 동의해 주세요!");
         } */
+        /*
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "email", "Required", "이메일을 입력하세요.");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "password", "Required", "비밀번호를 입력하세요.");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "confirmPassword", "Required", "비밀번호를 확인하세요.");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "name", "Required", "회원명을 입력하세요.");
+        */
 
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "email", "Required");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "password", "Required");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "confirmPassword", "Required");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "name", "Required");
 
+        if (!agree) { // 약관에 동의하지 않은 경우!
+            errors.rejectValue("agree", "Agree");
+        }
         /* 필수항목 검증 E */
 
 
         /* 비밀번호, 비밀번호 확인 일치 여부 체크 */
         if (password != null && confirmPassword != null
                 && !password.equals(confirmPassword)) {
-            errors.rejectValue("confirmPassword", "Mismatch", "비밀번호가 일치하지 않습니다.");
+            errors.rejectValue("confirmPassword", "Mismatch");
         }
     }
 }
