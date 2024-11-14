@@ -3,7 +3,6 @@ package org.koreait.member.validators;
 import org.koreait.member.controllers.RequestJoin;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
-import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
 
 @Component
@@ -65,7 +64,7 @@ public class JoinValidator implements Validator {
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "confirmPassword", "Required", "비밀번호를 확인하세요.");
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "name", "Required", "회원명을 입력하세요.");
         */
-
+        /*
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "email", "Required");
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "password", "Required");
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "confirmPassword", "Required");
@@ -73,7 +72,7 @@ public class JoinValidator implements Validator {
 
         if (!agree) { // 약관에 동의하지 않은 경우!
             errors.rejectValue("agree", "Agree");
-        }
+        } */
         /* 필수항목 검증 E */
 
 
@@ -82,10 +81,10 @@ public class JoinValidator implements Validator {
                 && !password.equals(confirmPassword)) {
             errors.rejectValue("confirmPassword", "Mismatch");
         }
-
+        /*
         boolean result = false;
         if (!result) {
             errors.reject("Fail.join"); // 특정 필드가 아닌 일반적인 검증 실패
-        }
+        } */
     }
 }

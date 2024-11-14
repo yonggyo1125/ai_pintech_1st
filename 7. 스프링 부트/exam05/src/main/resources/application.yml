@@ -1,2 +1,8 @@
 server:
   port: 3000
+
+spring:
+  # 타임리프 설정
+  thymeleaf:
+    cache: false
+    prefix: file:src/main/resources/templates/

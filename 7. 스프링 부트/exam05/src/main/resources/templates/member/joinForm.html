@@ -4,7 +4,6 @@
     layout:decorate="~{layouts/main}">
 
     <main layout:fragment="content">
-        [[${apples}]]
         <form method="POST" th:action="@{/member/join}" autocomplete="off" th:object="${requestJoin}">
             <div th:each="err : ${#fields.globalErrors()}" th:text="${err}"></div>
             <dl>

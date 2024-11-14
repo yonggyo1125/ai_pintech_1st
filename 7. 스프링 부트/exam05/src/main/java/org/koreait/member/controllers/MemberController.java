@@ -1,5 +1,6 @@
 package org.koreait.member.controllers;
 
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.koreait.member.validators.JoinValidator;
@@ -49,10 +50,12 @@ public class MemberController {
 
     /**
      * 회원 가입 처리!
+     * @Valid : 검증할 커맨드 객체임을 알려준다!
+     * @Valid이 있으면 반드시 Errors 객체는 커맨드 객체 바로 다음에 나와야 한다!
      * @return
      */
     @PostMapping("/join")
-    public String joinPs(RequestJoin form, Errors errors) {
+    public String joinPs(@Valid RequestJoin form, Errors errors) {
 
         joinValidator.validate(form, errors); // 커맨드 객체 검증
 
