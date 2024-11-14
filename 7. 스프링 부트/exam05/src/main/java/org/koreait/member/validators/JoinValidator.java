@@ -1,9 +1,11 @@
 package org.koreait.member.validators;
 
 import org.koreait.member.controllers.RequestJoin;
+import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
+@Component
 public class JoinValidator implements Validator {
     /**
      * 검증을 할 커맨드 객체를 한정
