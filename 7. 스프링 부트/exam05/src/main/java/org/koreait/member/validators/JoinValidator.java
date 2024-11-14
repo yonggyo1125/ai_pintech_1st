@@ -38,7 +38,7 @@ public class JoinValidator implements Validator {
         String confirmPassword = form.getConfirmPassword();
         String name = form.getName();
         boolean agree = form.isAgree();
-
+        /*
         if (email == null || email.isBlank()) {
             errors.rejectValue("email", "Required", "이메일을 입력하세요.");
         }
@@ -57,8 +57,11 @@ public class JoinValidator implements Validator {
 
         if (!agree) { // 약관에 동의하지 않은 경우!
             errors.rejectValue("agree", "Agree", "회원가입 약관에 동의해 주세요!");
-        }
+        } */
+
+
         /* 필수항목 검증 E */
+
 
         /* 비밀번호, 비밀번호 확인 일치 여부 체크 */
         if (password != null && confirmPassword != null
