@@ -4,7 +4,7 @@
     layout:decorate="~{layouts/main}">
 
     <main layout:fragment="content">
-        [[${requestJoin}]]
+        [[${apples}]]
         <form method="POST" th:action="@{/member/join}" autocomplete="off" th:object="${requestJoin}">
             <dl>
                 <dt th:text="#{이메일}"></dt>
