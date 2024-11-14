@@ -20,6 +20,11 @@
                 <div th:each="err : ${#fields.errors('password')}" th:text="${err}"></div>
             </dd>
         </dl>
+        <div>
+            <input type="checkbox" name="saveEmail" value="true" id="saveEmail">
+            <label for="saveEmail" th:text="#{이메일_기억하기}"></label>
+        </div>
+        <button type="submit" th:text="#{로그인}"></button>
     </form>
 </main>
 </html>
