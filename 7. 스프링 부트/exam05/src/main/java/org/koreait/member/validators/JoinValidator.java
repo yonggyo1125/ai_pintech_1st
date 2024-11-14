@@ -54,6 +54,16 @@ public class JoinValidator implements Validator {
         if (name == null || name.isBlank()) {
             errors.rejectValue("name", "Required", "회원명을 입력하세요.");
         }
+
+        if (!agree) { // 약관에 동의하지 않은 경우!
+            errors.rejectValue("agree", "Agree", "회원가입 약관에 동의해 주세요!");
+        }
         /* 필수항목 검증 E */
+
+        /* 비밀번호, 비밀번호 확인 일치 여부 체크 */
+        if (password != null && confirmPassword != null
+                && !password.equals(confirmPassword)) {
+            errors.rejectValue("confirmPassword", "Mismatch", "비밀번호가 일치하지 않습니다.");
+        }
     }
 }
