@@ -28,5 +28,17 @@ public class JoinValidator implements Validator {
 
         RequestJoin form = (RequestJoin)target;
 
+        /**
+         * 필수 항목 검증 S
+         * email, password, confirmPassword, name, agree
+         */
+
+        String email = form.getEmail();
+        String password = form.getPassword();
+        String confirmPassword = form.getConfirmPassword();
+        String name = form.getName();
+        boolean agree = form.isAgree();
+
+        /* 필수항목 검증 E */
     }
 }
