@@ -36,8 +36,13 @@ public class MemberController {
 
         joinValidator.validate(form, errors); // 커맨드 객체 검증
 
+        if (errors.hasErrors()) { // 검증 실패! - reject, rejectValue가 한번이라도 호출 되었다!
+            return "member/joinForm"; // 검증 실패하면 사용자에게 양식을 다시 보여주고, 검증 실패 정보를 제공!
+        }
 
-        return "member/joinForm"; // 임시
+        // 검증 성공시 - 가입 처리 서비스 호출
+
+       return "redirect:/member/login"; // 가입 성공시 로그인 페이지로 이동
     }
 
 }
