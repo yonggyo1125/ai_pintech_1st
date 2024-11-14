@@ -5,6 +5,7 @@
 
 <main layout:fragment="content">
     <form method="post" th:action="@{/member/login}" autocomplete="off" th:object="${requestLogin}">
+        <div th:each="err : ${#fields.globalErrors()}" th:text="${err}"></div>
         <dl>
             <dt th:text="#{이메일}"></dt>
             <dd>
