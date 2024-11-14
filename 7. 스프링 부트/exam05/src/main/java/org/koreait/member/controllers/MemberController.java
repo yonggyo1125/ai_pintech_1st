@@ -1,5 +1,6 @@
 package org.koreait.member.controllers;
 
+import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -87,6 +88,13 @@ public class MemberController {
         loginService.process(form);
 
         return "redirect:/";
+    }
+
+    @RequestMapping("/logout")
+    public String logout(HttpSession session) {
+        session.invalidate(); // 세션 비우기
+
+        return "redirect:/member/login";
     }
 
     /**
