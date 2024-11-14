@@ -39,6 +39,21 @@ public class JoinValidator implements Validator {
         String name = form.getName();
         boolean agree = form.isAgree();
 
+        if (email == null || email.isBlank()) {
+            errors.rejectValue("email", "Required", "이메일을 입력하세요.");
+        }
+
+        if (password == null || password.isBlank()) {
+            errors.rejectValue("password", "Required", "비밀번호를 입력하세요.");
+        }
+
+        if (confirmPassword == null || confirmPassword.isBlank()) {
+            errors.rejectValue("confirmPassword", "Required", "비밀번호를 확인하세요.");
+        }
+
+        if (name == null || name.isBlank()) {
+            errors.rejectValue("name", "Required", "회원명을 입력하세요.");
+        }
         /* 필수항목 검증 E */
     }
 }
