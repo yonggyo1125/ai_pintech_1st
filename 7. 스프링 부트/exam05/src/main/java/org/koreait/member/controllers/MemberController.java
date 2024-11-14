@@ -69,9 +69,19 @@ public class MemberController {
     }
 
     @GetMapping("/login")
-    public String login() {
+    public String login(@ModelAttribute RequestLogin form) {
 
         return "member/login";
+    }
+
+    @PostMapping("/login")
+    public String loginPs(@Valid RequestLogin form, Errors errors) {
+
+        if (errors.hasErrors()) {
+            return "member/login";
+        }
+
+        return "redirect:/";
     }
 
     /**
