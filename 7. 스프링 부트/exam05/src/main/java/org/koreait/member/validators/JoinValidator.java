@@ -1,12 +1,13 @@
 package org.koreait.member.validators;
 
+import org.koreait.global.validators.MobileValidator;
 import org.koreait.member.controllers.RequestJoin;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
 @Component
-public class JoinValidator implements Validator {
+public class JoinValidator implements Validator, MobileValidator {
     /**
      * 검증을 할 커맨드 객체를 한정
      *  RequestJoin 커맨드 객체만을 검증할거야!
@@ -81,6 +82,13 @@ public class JoinValidator implements Validator {
                 && !password.equals(confirmPassword)) {
             errors.rejectValue("confirmPassword", "Mismatch");
         }
+
+        /* 휴대전화번호 형식 체크 */
+        String mobile = form.getMobile();
+        if (mobile != null && !mobile.isBlank() && !checkMobile(mobile)) {
+            errors.rejectValue("mobile", "Mobile");
+        }
+
         /*
         boolean result = false;
         if (!result) {
