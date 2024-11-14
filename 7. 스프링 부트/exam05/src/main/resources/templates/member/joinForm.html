@@ -23,6 +23,23 @@
                     <input type="password" name="confirmPassword">
                 </dd>
             </dl>
+            <dl>
+                <dt th:text="#{회원명}"></dt>
+                <dd>
+                    <input type="text" name="name">
+                </dd>
+            </dl>
+            <dl>
+                <dt th:text="#{휴대전화번호}"></dt>
+                <dd>
+                    <input type="text" name="mobile">
+                </dd>
+            </dl>
+            <div>
+                <input type="checkbox" name="agree" value="true">
+                <th:block th:text="#{회원가입_약관에_동의합니다}"></th:block>
+            </div>
+            <button type="submit" th:text="#{가입하기}"></button>
         </form>
     </main>
 
