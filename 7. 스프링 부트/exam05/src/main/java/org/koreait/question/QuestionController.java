@@ -1,5 +1,6 @@
 package org.koreait.question;
 
+import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -66,5 +67,9 @@ public class QuestionController {
     @GetMapping("/test3")
     public void test3(@SessionAttribute("testField") String value) {
         log.info("testField:" + value);
+    }
+
+    public void test4(HttpServletRequest request) {
+        //ServletContext application = request.getServletContext();
     }
 }
