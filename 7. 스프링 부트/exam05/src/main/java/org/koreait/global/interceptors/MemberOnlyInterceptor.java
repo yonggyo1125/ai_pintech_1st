@@ -17,6 +17,7 @@ public class MemberOnlyInterceptor implements HandlerInterceptor {
 
         System.out.println("preHandle()!");
 
-        return true;
+        //return true;
+        return false; // 컨트롤로 빈 요청 메서드 실행 X - 화면이 보이지 않음
     }
 }
