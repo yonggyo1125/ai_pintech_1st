@@ -18,4 +18,8 @@ public class AlertBackException extends AlertException {
 
         this.target = target;
     }
+
+    public AlertBackException(String message, HttpStatus status) {
+        this(message, status, "self");
+    }
 }
