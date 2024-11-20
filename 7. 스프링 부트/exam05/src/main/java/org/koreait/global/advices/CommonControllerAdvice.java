@@ -6,11 +6,13 @@ import org.koreait.global.exceptions.CommonException;
 import org.koreait.global.exceptions.scripts.AlertBackException;
 import org.koreait.global.exceptions.scripts.AlertException;
 import org.koreait.global.exceptions.scripts.AlertRedirectException;
+import org.koreait.member.libs.MemberUtil;
 import org.springframework.context.MessageSource;
 import org.springframework.http.HttpStatus;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
@@ -20,6 +22,17 @@ import org.springframework.web.servlet.ModelAndView;
 @RequiredArgsConstructor
 public class CommonControllerAdvice {
     private final MessageSource messageSource;
+    private final HttpServletRequest request;
+    private final MemberUtil memberUtil;
+
+    /**
+     * org.koreait 패키지를 포함한 하위 패키지의 모든 컨트롤러에서 공유할 값
+     * @return
+     */
+    @ModelAttribute("isLogin")
+    public boolean isLogin() {
+        return memberUtil.isLogin();
+    }
 
     @ExceptionHandler(Exception.class)
     public ModelAndView errorHandler(Exception e, Model model, HttpServletRequest request) {
@@ -51,7 +64,7 @@ public class CommonControllerAdvice {
             if (e instanceof AlertRedirectException alertRedirectException) {
                 String target = alertRedirectException.getTarget();
                 String url = alertRedirectException.getUrl();
-                sb.append(String.format("%s.location.replace('%s')", target, url));
+                sb.append(String.format("%s.location.replace('%s%s')", target, request.getContextPath(), url));
             }
 
             mv.addObject("script", sb.toString());

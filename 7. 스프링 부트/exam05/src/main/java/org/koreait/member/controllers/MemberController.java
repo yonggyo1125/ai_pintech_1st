@@ -72,7 +72,11 @@ public class MemberController {
 
     @GetMapping("/login")
     public String login(@ModelAttribute RequestLogin form, @CookieValue(name="savedEmail", required = false) String savedEmail) {
-
+        /*
+        if (true) {
+            throw new AlertRedirectException("테스트 예외", "/member/join", HttpStatus.BAD_REQUEST);
+        }
+        */
         if (savedEmail != null) { // 쿠키값이 있다면
             form.setEmail(savedEmail);
             form.setSaveEmail(true);
