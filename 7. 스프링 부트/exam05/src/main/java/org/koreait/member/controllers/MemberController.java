@@ -1,9 +1,11 @@
 package org.koreait.member.controllers;
 
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.koreait.member.exceptions.MemberNotFoundException;
 import org.koreait.member.services.LoginService;
 import org.koreait.member.validators.JoinValidator;
 import org.springframework.stereotype.Controller;
@@ -110,4 +112,10 @@ public class MemberController {
     public void initBinder(WebDataBinder binder) {
         binder.setValidator(joinValidator);
     } */
+
+    @ExceptionHandler(MemberNotFoundException.class)
+    public String errorHandler(MemberNotFoundException e, Model model, HttpServletRequest request) {
+        e.printStackTrace();
+        return "error/errorPage";
+    }
 }

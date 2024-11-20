@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <div>
+        message(예외 메세지) : [[${message}]]
+    </div>
+    <div>
+        status(상태 코드) : [[${status}]]
+    </div>
+    <div>
+        path(예외가 발생한 요청 URL 정보) : [[${path}]]
+    </div>
+    <div>
+        timestamp(예외가 발생한 시각): [[${timestamp}]]
+    </div>
+    <div>
+        trace : [[${trace}]]
+    </div>
+    <div>
+        error(예외가 발생한 이유) : [[${error}]]
+    </div>
+    <div>
+        errors(Errors) : [[${errors}]]
+    </div>
+    <div>
+        exception(예외 객체) : [[${exception}]]
+    </div>
+</html>

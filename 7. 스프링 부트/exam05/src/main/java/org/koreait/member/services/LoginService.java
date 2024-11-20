@@ -6,6 +6,7 @@ import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.koreait.member.controllers.RequestLogin;
 import org.koreait.member.entities.Member;
+import org.koreait.member.exceptions.MemberNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -18,6 +19,12 @@ public class LoginService {
     private final HttpServletResponse response;
 
     public void process(RequestLogin form) {
+        // 임시 - 예외 공통 처리 테스트
+        String email = form.getEmail();
+        if (!email.equals("user01@test.org")) {
+            throw new MemberNotFoundException();
+        }
+
 
         /* DB에서 데이터를 가져왔다고 가정! */
         Member member = new Member();
