@@ -2,6 +2,9 @@ server:
   port: 3000
 
 spring:
+  # profiles:
+  #  active: prod
+
   # 타임리프 설정
   thymeleaf:
     cache: false
