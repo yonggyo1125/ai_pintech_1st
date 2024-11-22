@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-    <form method="post" th:action="@{/file/upload}" autocomplete="off">
+    <form method="post" th:action="@{/file/upload}" autocomplete="off" enctype="multipart/form-data">
         제목 : <input type="text" name="subject"><br>
         내용 : <textarea name="content"></textarea><br>
         파일선택: <input type="file" name="file"><br>
