@@ -40,7 +40,7 @@ public class MemberController2 {
         List<Member> members = IntStream.rangeClosed(1, 10)
                 .mapToObj(i -> {
                     Member member = new Member();
-                    member.setSeq(i);
+                    //member.setSeq(i);
                     member.setEmail("user" + i + "@test.org");
                     member.setName("<h1>사용자" + i + "</h1>");
                     member.setPassword("12345678");
