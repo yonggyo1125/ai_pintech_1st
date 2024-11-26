@@ -34,6 +34,13 @@ spring:
       maxRequestSize: 60MB     # 한번에 전송할 수 있는 최대 파일 용량
       fileSizeThreshold: 30MB  # 임시 메모리에 저장할 최대 용량, 넘어서면 임시 디렉토리에 저장
 
+# 로거 설정
+logging:
+  level:
+    org.hibernate.type: trace
+    org.hibernate.orm.jdbc.bind: trace
+
+
 
 # 파일 업로드 경로
 file:
