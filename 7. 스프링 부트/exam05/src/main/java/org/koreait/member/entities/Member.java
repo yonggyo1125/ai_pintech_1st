@@ -2,6 +2,8 @@ package org.koreait.member.entities;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
 
@@ -24,8 +26,10 @@ public class Member {
     private String name;
 
     @Column(updatable = false)
+    @CreationTimestamp
     private LocalDateTime regDt;
 
     @Column(insertable = false)
+    @UpdateTimestamp
     private LocalDateTime modDt;
 }
