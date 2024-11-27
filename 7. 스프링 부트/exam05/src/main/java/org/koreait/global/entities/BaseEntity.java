@@ -1,0 +1,27 @@
+package org.koreait.global.entities;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.EntityListeners;
+import jakarta.persistence.MappedSuperclass;
+import lombok.Getter;
+import lombok.Setter;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
+import java.time.LocalDateTime;
+
+@Getter @Setter
+@MappedSuperclass // 다른 엔티티의 상위 클래스임을 알려주는 애노테이션
+@EntityListeners(AuditingEntityListener.class)  // 엔티티의 변화 감지를 확인을 할 수 있다!
+public abstract class BaseEntity {
+    @Column(updatable = false)
+    //@CreationTimestamp
+    @CreatedDate
+    private LocalDateTime regDt;
+
+    @Column(insertable = false)
+    //@UpdateTimestamp
+    @LastModifiedDate
+    private LocalDateTime modDt;
+}

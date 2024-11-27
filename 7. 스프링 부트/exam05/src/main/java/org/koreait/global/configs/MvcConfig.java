@@ -3,11 +3,13 @@ package org.koreait.global.configs;
 import org.koreait.etc.Greet;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
 @EnableScheduling // 스케줄링 설정 자동화
+@EnableJpaAuditing // 엔티티 변화감지 리스너 설정이 자동화
 //@RequiredArgsConstructor
 public class MvcConfig implements WebMvcConfigurer {
 
