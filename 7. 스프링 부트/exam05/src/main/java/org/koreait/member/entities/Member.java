@@ -23,7 +23,8 @@ public class Member extends BaseEntity {
     @Column(length=40, nullable = false)
     private String name;
 
-    @Lob // 오라클 기준 CLOB
+    //@Lob // 오라클 기준 CLOB
+    @Transient
     private String introduction;
 
     @Enumerated(EnumType.STRING)
