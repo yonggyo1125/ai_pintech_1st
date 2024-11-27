@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @SpringBootTest
-@ActiveProfiles({"default", "test"})
+@ActiveProfiles({"default", "test"})  // -Dspring.profiles.active=default,test
 public class Ex05 {
 
     @Autowired
@@ -40,5 +40,11 @@ public class Ex05 {
     void test1() {
         List<Member> members = repository.findAll();
         members.forEach(System.out::println);
+    }
+
+    @Test
+    void test2() {
+        Member member = repository.findByEmail("user20@test.org").orElseThrow(RuntimeException::new);
+        System.out.println(member);
     }
 }
