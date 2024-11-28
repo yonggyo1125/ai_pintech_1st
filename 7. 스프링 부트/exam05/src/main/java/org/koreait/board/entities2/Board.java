@@ -5,6 +5,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import lombok.Data;
+import lombok.ToString;
 import org.koreait.global.entities.BaseEntity;
 
 import java.util.List;
@@ -18,6 +19,7 @@ public class Board extends BaseEntity {
     @Column(length=50, nullable = false)
     private String bname; // 게시판명
 
+    @ToString.Exclude // ToString 메서드에서 배제
     @OneToMany(mappedBy = "board") // 관계 주인 BoardData의 외래키 참조인 board
     private List<BoardData> items;
 }

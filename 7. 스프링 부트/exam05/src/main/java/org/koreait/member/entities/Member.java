@@ -38,4 +38,7 @@ public class Member extends BaseEntity {
     private Date birthDt;
 
      */
+
+    @OneToOne // address_seq
+    private Address address;
 }
