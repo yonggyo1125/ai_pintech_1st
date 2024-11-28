@@ -46,8 +46,23 @@ public class Ex04 {
         //members.forEach(System.out::println);
 
         // 0페이지, 한페이지당 3개씩
-        Pageable pageable = PageRequest.of(0, 3);
+        Pageable pageable = PageRequest.of(2, 3);
         Page<Member> data = repository.findByNameContainingOrderByRegDtDesc("", pageable);
 
+        List<Member> members = data.getContent(); // 조회된 목록
+        long total = data.getTotalElements(); // 전체 갯수
+        int pages = data.getTotalPages(); // 전체 페이지 갯수
+
+        members.forEach(System.out::println);
+        System.out.printf("total=%d, pages=%d%n", total, pages);
+
+    }
+
+    @Test
+    void test2() {
+        Pageable pageable = PageRequest.of(1, 3); // 1 - 2페이지
+        Page<Member> data = repository.findAll(pageable);
+        List<Member> members = data.getContent();
+        members.forEach(System.out::println);
     }
 }
