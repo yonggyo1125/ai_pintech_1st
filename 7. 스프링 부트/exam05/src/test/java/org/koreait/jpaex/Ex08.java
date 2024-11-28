@@ -83,4 +83,9 @@ public class Ex08 {
             System.out.println(board.getBname()); // 게시판명
         }
     }
+
+    @Test
+    void test3() {
+        boardDataRepository.getItems();
+    }
 }
