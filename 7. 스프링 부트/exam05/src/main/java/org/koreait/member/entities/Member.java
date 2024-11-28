@@ -31,6 +31,8 @@ public class Member extends BaseEntity {
     @Column(length=10, nullable = false)
     private Authority authority;
 
+    // private int num;
+    // private Integer num2;
     /*
     @Temporal(TemporalType.TIME)
     private Date birthDt;
