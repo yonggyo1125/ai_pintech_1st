@@ -70,4 +70,10 @@ public class Ex04 {
         List<Member> members = data.getContent();
         members.forEach(System.out::println);
     }
+
+    @Test
+    void test3() {
+        List<Member> members = repository.getMembers("%민%");
+        members.forEach(System.out::println);
+    }
 }
