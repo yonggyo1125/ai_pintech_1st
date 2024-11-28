@@ -2,6 +2,7 @@ package org.koreait.tests;
 
 import com.github.javafaker.Faker;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.koreait.member.constants.Authority;
 import org.koreait.member.entities.Member;
 import org.koreait.member.repositories.MemberRepository;
@@ -34,5 +35,11 @@ public class Ex04 {
         }
 
         repository.saveAllAndFlush(members);
+    }
+
+    @Test
+    void test1() {
+        List<Member> members = repository.findByNameContainingOrderByRegDtDesc("");
+        members.forEach(System.out::println);
     }
 }
