@@ -1,5 +1,6 @@
 package org.koreait.jpaex;
 
+import com.querydsl.jpa.impl.JPAQueryFactory;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import org.junit.jupiter.api.BeforeEach;
@@ -7,6 +8,7 @@ import org.junit.jupiter.api.Test;
 import org.koreait.board.entities2.Board;
 import org.koreait.board.entities2.BoardData;
 import org.koreait.board.entities2.HashTag;
+import org.koreait.board.entities2.QBoardData;
 import org.koreait.board.repositories.BoardDataRepository;
 import org.koreait.board.repositories.BoardRepository;
 import org.koreait.board.repositories.HashTagRepository;
@@ -33,6 +35,9 @@ public class Ex08 {
 
     @PersistenceContext
     private EntityManager em;
+
+    @Autowired
+    private JPAQueryFactory factory;
 
     @BeforeEach
     void init() {
@@ -86,6 +91,39 @@ public class Ex08 {
 
     @Test
     void test3() {
-        boardDataRepository.getItems();
+        List<BoardData> items = boardDataRepository.getItems();
+        for (BoardData item : items) {
+            String bName = item.getBoard().getBname(); // 2차 쿼리를 수행
+            System.out.println(bName);
+        }
+    }
+
+    @Test
+    void test4() {
+        // QueryDSL - fetchJoin()
+        QBoardData boardData = QBoardData.boardData;
+        List<BoardData> items = factory.selectFrom(boardData)
+                .leftJoin(boardData.board)
+                .fetchJoin()  // boardData.board를 처음부터 JOIN
+                .leftJoin(boardData.member)
+                .fetchJoin() // boardData.member를 처음부터 JOIN
+                .fetch();
+
+
+    }
+
+    @Test
+    void test5() {
+        boardDataRepository.findBySubjectContaining("");
+    }
+
+    @Test
+    void test6() {
+        Board board = boardRepository.findById("freetalk").orElse(null);
+        List<BoardData> items = board.getItems();
+        items.remove(1);
+
+        //boardRepository.delete(board);
+        //boardRepository.flush();
     }
 }
