@@ -123,7 +123,7 @@ public class Ex08 {
         List<BoardData> items = board.getItems();
         items.remove(1);
         boardRepository.flush();
-        boardDataRepository.flush();
+        //boardDataRepository.flush();
         //boardRepository.delete(board);
         //boardRepository.flush();
     }
