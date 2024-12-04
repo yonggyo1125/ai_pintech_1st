@@ -64,11 +64,11 @@ public class ApiMemberController {
             throw new BadRequestException(message);
         }
     }
-
+    /*
     @ExceptionHandler(Exception.class)
     public String errorHandler() {
         return null;
-    }
+    } */
     /*
     public ResponseEntity<Void> test3(@RequestBody RequestLogin form) {
         //log.info(form.toString());

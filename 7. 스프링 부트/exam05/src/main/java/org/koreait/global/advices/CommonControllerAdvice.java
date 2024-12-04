@@ -9,6 +9,7 @@ import org.koreait.global.exceptions.scripts.AlertRedirectException;
 import org.koreait.member.libs.MemberUtil;
 import org.springframework.context.MessageSource;
 import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -18,7 +19,7 @@ import org.springframework.web.servlet.ModelAndView;
 /**
  * org.koreait 패키지를 포함한 하위 패키지의 모든 @Controller 애노테이션 적용된 컨트롤러
  */
-@ControllerAdvice("org.koreait")
+@ControllerAdvice(annotations = Controller.class)
 @RequiredArgsConstructor
 public class CommonControllerAdvice {
     private final MessageSource messageSource;
