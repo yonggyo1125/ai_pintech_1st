@@ -1,5 +1,6 @@
 package org.koreait.member.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 import org.koreait.global.entities.BaseEntity;
@@ -17,6 +18,7 @@ public class Member extends BaseEntity {
     @Column(length=65, nullable = false, unique = true)
     private String email;
 
+    @JsonIgnore // JSON 문자열 변환 배제
     @Column(length=65, nullable = false)
     private String password;
 
