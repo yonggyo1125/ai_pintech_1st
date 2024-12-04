@@ -1,11 +1,11 @@
 package org.koreait.rests;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.koreait.member.controllers.ApiMemberController;
 import org.koreait.member.controllers.RequestLogin;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureWebMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.ActiveProfiles;
@@ -19,7 +19,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
 
 
 @SpringBootTest
-@AutoConfigureWebMvc
+//@AutoConfigureMockMvc
 @ActiveProfiles({"default", "test"})
 public class Ex01 {
 
@@ -64,5 +64,14 @@ public class Ex01 {
         form.setPassword("12345678");
         form.setSaveEmail(true);
 
+        ObjectMapper om = new ObjectMapper();
+        String json = om.writeValueAsString(form);
+
+        System.out.println(json);
+
+        mockMvc.perform(post("/api/member/test3")
+                .contentType(MediaType.APPLICATION_JSON)  // Content-Type: application/json
+                .content(json)
+        ).andDo(print());
     }
 }

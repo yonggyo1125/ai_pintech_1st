@@ -3,10 +3,9 @@ package org.koreait.member.controllers;
 import lombok.extern.slf4j.Slf4j;
 import org.koreait.member.constants.Authority;
 import org.koreait.member.entities.Member;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -49,8 +48,21 @@ public class ApiMemberController {
         return members;
     }
 
+    /**
+     * @RequestBody 커맨드객체 앞에 적용하면 요청 바디의 데이터 형식이 application/json임을 알게 된다.
+     * @param form
+     */
+    //@ResponseStatus(HttpStatus.CREATED)
     @PostMapping("/test3")
-    public void test3(RequestLogin form) {
-        log.info(form.toString());
+    public ResponseEntity<RequestLogin> test3(@RequestBody RequestLogin form) {
+        //log.info(form.toString());
+
+        return ResponseEntity.status(HttpStatus.CREATED)
+                .header("KOREAIT", "FIGHTING!")
+                .body(form);
     }
+    /*
+    public void test3(@RequestBody RequestLogin form) {
+        log.info(form.toString());
+    } */
 }
