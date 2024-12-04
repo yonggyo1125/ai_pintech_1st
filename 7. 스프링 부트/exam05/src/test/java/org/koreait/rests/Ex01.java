@@ -60,7 +60,7 @@ public class Ex01 {
     @Test
     void test3() throws Exception {
         RequestLogin form = new RequestLogin();
-        form.setEmail("user01@test.org");
+        //form.setEmail("user01@test.org");
         form.setPassword("12345678");
         form.setSaveEmail(true);
 
