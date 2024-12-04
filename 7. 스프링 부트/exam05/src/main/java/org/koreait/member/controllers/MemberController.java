@@ -4,6 +4,8 @@ import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.koreait.member.constants.Authority;
+import org.koreait.member.entities.Member;
 import org.koreait.member.services.LoginService;
 import org.koreait.member.validators.JoinValidator;
 import org.springframework.context.MessageSource;
@@ -12,6 +14,8 @@ import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @Slf4j
@@ -144,4 +148,23 @@ public class MemberController {
         return mv;
     }
     */
+
+    @ResponseBody
+    @GetMapping("/test")
+    public List<Member> test() {
+        List<Member> members = new ArrayList<>();
+        for (int i = 1; i <= 10; i++) {
+            Member member = new Member();
+            member.setSeq((long)i);
+            member.setName("사용자" + i);
+            member.setPassword("12345678");
+            member.setAuthority(Authority.USER);
+            member.setEmail("user" + i + "@test.org");
+            member.setRegDt(LocalDateTime.now());
+            member.setModDt(LocalDateTime.now());
+            members.add(member);
+        }
+
+        return members;
+    }
 }
