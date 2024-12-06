@@ -11,6 +11,15 @@ public class User {
         return new Builder();
     }
 
+    @Override
+    public String toString() {
+        return "User{" +
+                "email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", name='" + name + '\'' +
+                '}';
+    }
+
     static class Builder { // User 클래스 객체를 생성하고 조립
         private User instance = new User();
 
