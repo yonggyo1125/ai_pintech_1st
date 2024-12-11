@@ -10,13 +10,28 @@ from sklearn.preprocessing import StandardScaler
 from tensorflow import keras
 import os.path
 import sys
-
+import tensorflow as tf
+tf.compat.v1.logging.set_verbosity(tf.compat.v1.logging.ERROR)
+import warnings as wa
+wa.filterwarnings("ignore")
+import os
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
 # In[20]:
 
 
 # data_url = "http://localhost:3000/api/dl/data"
-data_url = sys.argv[1]
+data_all_url = sys.argv[1]  # 전체 데이터 주소
+
+df_all = pd.read_json(data_all_url)
+
+# 표준 점수 기준 구하기 
+all_items = df_all[['item1', 'item2', 'item3', 'item4', 'item5', 'item6', 'item7', 'item8', 'item9','item10']].to_numpy()
+ss = StandardScaler()
+ss.fit(all_items)
+
+# 훈련할 데이터 추출
+data_url = sys.argv[2]
 df = pd.read_json(data_url)
 
 items = df[['item1', 'item2', 'item3', 'item4', 'item5', 'item6', 'item7', 'item8', 'item9','item10']].to_numpy()
@@ -34,11 +49,8 @@ train_input, test_input, train_target, test_target = train_test_split(items, tar
 
 
 # 데이터 전처리 - 표준 점수 변환
-ss = StandardScaler()
-ss.fit(items)
 train_scaled = ss.transform(train_input)
 test_scaled = ss.transform(test_input)
-# print(test_scaled[:1])
 
 
 # In[23]:
