@@ -46,6 +46,6 @@ ss.fit(all_items)
 test_data = eval(sys.argv[2])
 test_scaled = ss.transform(test_data)
 
-predictions = model.predict(np.array(test_data), verbose=0)
+predictions = model.predict(np.array(test_scaled), verbose=0)
 print(predictions.argmax(axis=1))
 
