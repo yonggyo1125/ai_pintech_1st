@@ -5,5 +5,13 @@
   </head>
   <body>
     <h1>ex05.html</h1>
+    <iframe src="ex06.html" width="800" height="800"></iframe>
+    <script>
+      // parent - 부모창의 window 객체
+      console.log(window === window.parent); // window 하위 속성에 접근 할때는 window 생략하고 접근 가능!
+      console.log(window === parent);
+      //window.location.href = "http://webnmobile.net"; // 현재 창에서 주소 이동
+      //parent.location.href = "http://webnmobile.net"; // 부모 창에서 주소 이동
+    </script>
   </body>
 </html>
