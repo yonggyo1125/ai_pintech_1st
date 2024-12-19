@@ -10,8 +10,10 @@
 
     <script>
       const el = document.getElementById("div");
-      el.addEventListener("click", () => {
+      el.addEventListener("click", (e) => {
         console.log("this", this);
+        console.log("el", el);
+        console.log("e.currentTarget", e.currentTarget);
       });
     </script>
   </body>
