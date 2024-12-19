@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <div id="div">
+      <span>클릭</span>
+    </div>
+
+    <script>
+      const el = document.getElementById("div");
+      el.addEventListener("click", () => {
+        console.log("this", this);
+      });
+    </script>
+  </body>
+</html>
