@@ -34,16 +34,23 @@
       const box2 = document.getElementById("box2");
       const box3 = document.getElementById("box3");
 
-      box1.addEventListener("click", function () {
+      box1.addEventListener("click", function (e) {
         console.log("box1");
       });
 
-      box2.addEventListener("click", function () {
+      box2.addEventListener("click", function (e) {
         console.log("box2");
       });
 
-      box3.addEventListener("click", function () {
+      box2.addEventListener("mouseenter", function (e) {
+        console.log("mouseenter");
+      });
+
+      box3.addEventListener("click", function (e) {
         console.log("box3");
+        //console.log(e);
+        //e.stopPropagation(); // 전파 방지
+        e.stopImmediatePropagation();
       });
     </script>
   </body>
