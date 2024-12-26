@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <style>
+      /*
+      a[href] {
+        background: gray;
+      } */
+      /*
+      a[href='https://naver.com']
+      {
+        background: gray;
+      } */
+      a[href*="naver"] {
+        background: gray;
+      }
+      a[href$=".net"] {
+        background: orange;
+      }
+    </style>
+    <a href="https://naver.com">네이버</a>
+    <a href="https://daum.net">다음</a>
+  </body>
+</html>
