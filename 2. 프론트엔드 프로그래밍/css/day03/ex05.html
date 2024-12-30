@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <style>
+      .box {
+        height: 350px;
+        width: 100%;
+        background: gray;
+      }
+
+      .box:nth-of-type(2n) {
+        background: #000;
+      }
+
+      @media screen and (min-width: 600px) {
+        .box {
+          width: 50%;
+          float: left;
+        }
+      }
+
+      @media print {
+        .box {
+          background: orange;
+        }
+      }
+    </style>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+  </body>
+</html>
