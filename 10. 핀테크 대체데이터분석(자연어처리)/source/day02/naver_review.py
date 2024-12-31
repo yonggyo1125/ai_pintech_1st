@@ -1,6 +1,10 @@
 import os
 import tensorflow as tf
 os.environ['TF_USE_LEGACY_KERAS']='1'
+import tensorflow as tf
+import tensorflow_hub as hub
+import tensorflow_text as text
+
 model = tf.saved_model.load("D:/naver_bert")
 
 examples = [
