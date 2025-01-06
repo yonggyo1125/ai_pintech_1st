@@ -7,6 +7,11 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.koreait.member.controllers.RequestJoin;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponents;
 import org.springframework.web.util.UriComponentsBuilder;
 
@@ -18,11 +23,14 @@ import java.util.stream.IntStream;
 public class Ex01 {
 
     private ObjectMapper om;
+    private RestTemplate restTemplate;
 
     @BeforeEach
     void init() {
         om = new ObjectMapper();
         om.registerModule(new JavaTimeModule());
+
+        restTemplate = new RestTemplate();
     }
 
     @Test
@@ -64,6 +72,33 @@ public class Ex01 {
     void test3() {
         //UriComponents url = UriComponentsBuilder.fromUri(URI.create("https://www.naver.com"))
         UriComponents url = UriComponentsBuilder.fromUriString("https://www.naver.com")
+                .queryParam("k1", "v1")
+                .queryParam("k2", "v2")
+                .queryParam("k3", "한글")
+                .fragment("header")
+                .encode() // 멀티 바이트 문자 -> 16진수 형태로 변경 - URL 인코딩
                 .build();
+        String _url = url.toString();
+        System.out.println(_url);
+    }
+
+    @Test
+    void test4() {
+        String url = "https://jsonplaceholder.typicode.com/posts/1";
+        //String body = restTemplate.getForObject(URI.create(url), String.class); // 응답 바디
+        Post body = restTemplate.getForObject(URI.create(url), Post.class);
+        System.out.println(body);
+    }
+
+    @Test
+    void test5() {
+        String url = "https://jsonplaceholder.typicode.com/posts/1";
+        //ResponseEntity<String> response = restTemplate.getForEntity(URI.create(url), String.class);
+        ResponseEntity<Post> response = restTemplate.getForEntity(URI.create(url), Post.class);
+        HttpStatusCode status = response.getStatusCode();
+        System.out.println("status:" + status);
+        HttpHeaders headers = response.getHeaders(); // 응답 헤더
+        System.out.println("headers:" + headers);
+        System.out.println("body:" + response.getBody());
     }
 }
