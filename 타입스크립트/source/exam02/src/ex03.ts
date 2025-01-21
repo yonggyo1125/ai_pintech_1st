@@ -1,3 +1,4 @@
+/*
 interface Print {
   print: () => void
 }
@@ -36,8 +37,9 @@ const loc: Position & { address: string } = {
   address: '주소',
 } 
   */
+/*
 const loc: Position & Address = {
   lat: 31,
   lon: 127,
   address: '주소',
-}
+} */
