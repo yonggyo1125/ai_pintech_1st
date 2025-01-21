@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "module": "commonJS",
+    "esModuleInterop": true,
+    "target": "ESNext",
+    "moduleResolution": "node",
+    "outDir": "build",
+    "baseUrl": ".",
+    "sourceMap": true,
+    "downlevelIteration": true,
+    "noImplicitAny": false,
+    "paths": { "*": ["node_modules/*"] }
+  },
+  "include": ["src/**/*"]
+}
