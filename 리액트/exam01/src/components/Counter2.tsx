@@ -1,7 +1,7 @@
 'use client'
 import { Component } from 'react'
 
-class Counter2 extends Component {
+class Counter2 extends Component<unknown, { number: number }> {
   state: { number: number } = {
     number: 0,
   }
@@ -12,8 +12,24 @@ class Counter2 extends Component {
     return (
       <>
         <h1>{number}</h1>
-        <button type="button">-1</button>
-        <button type="button">+1</button>
+        <button
+          type="button"
+          //onClick={() => this.setState({ number: number - 1 })}
+          onClick={() =>
+            this.setState(({ number }) => ({ number: number - 1 }))
+          }
+        >
+          -1
+        </button>
+        <button
+          type="button"
+          //onClick={() => this.setState({ number: number + 1 })}
+          onClick={() =>
+            this.setState(({ number }) => ({ number: number + 1 }))
+          }
+        >
+          +1
+        </button>
       </>
     )
   }
