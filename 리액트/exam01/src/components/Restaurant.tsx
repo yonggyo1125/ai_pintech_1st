@@ -1,5 +1,5 @@
 'use client'
-import { use, useLayoutEffect, useState } from 'react'
+import { useLayoutEffect, useState } from 'react'
 
 const Restaurant = () => {
   const [limit, setLimit] = useState<number>(10)
