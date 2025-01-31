@@ -25,6 +25,7 @@ const JoinForm = (): React.ReactNode => {
           <input type="text" />
         </dd>
       </dl>
+      <button type="submit">가입하기</button>
     </form>
   )
 }
