@@ -1,6 +1,7 @@
-const JoinForm = (): React.ReactNode => {
+'use client'
+const JoinForm = ({ onSubmit }): React.ReactNode => {
   return (
-    <form>
+    <form onSubmit={onSubmit}>
       <dl>
         <dt>이메일</dt>
         <dd>
