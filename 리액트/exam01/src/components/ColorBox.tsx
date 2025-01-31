@@ -11,6 +11,14 @@ const ColorBox = (): React.ReactNode => {
   return (
     <>
       <ColorTabs />
+      <div
+        style={{
+          color: selected,
+          width: 300,
+          height: 300,
+          border: '1px solid #000',
+        }}
+      ></div>
     </>
   )
 }
