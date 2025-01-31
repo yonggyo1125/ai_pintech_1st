@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+        layout:decorate="~{layouts/main}">
+    <main layout:fragment="content">
+        <div th:text="${@ut.hello(requestJoin.name)}"></div>
+        <div th:text="${#messages.msg('LOGIN_MSG', requestJoin.name, requestJoin.email)}"></div>
+
+        <form method="POST" th:action="@{/member/join}" th:object="${requestJoin}">
+            <dl>
+                <dt th:text="#{이메일}"></dt>
+                <dd th:text="*{email}">yonggyo00@kakao.com</dd>
+            </dl>
+            <dl>
+                <dt th:text="#{비밀번호}"></dt>
+                <dd th:text="*{password}">23456789</dd>
+            </dl>
+            <dl>
+                <dt th:text="#{비밀번호_확인}"></dt>
+                <dd th:text="*{confirmPassword}">23456789</dd>
+            </dl>
+            <dl>
+                <dt th:text="#{회원명}"></dt>
+                <dd th:text="*{name}">이이름</dd>
+            </dl>
+            <button type="submit" th:text="#{가입하기}"></button>
+            <a th:href="@{/member/login(param1=*{email}, param2=*{password})}"
+               th:text="#{로그인}"></a>
+            <a th:href="@{/member/findId/{em}(em=*{email})}" th:text="#{아이디_찾기}"></a>
+        </form>
+    </main>
+</html>

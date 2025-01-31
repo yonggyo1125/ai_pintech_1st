@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <form method="post" th:action="@{/file/upload}" autocomplete="off" enctype="multipart/form-data">
+        제목 : <input type="text" name="subject"><br>
+        내용 : <textarea name="content"></textarea><br>
+        파일선택1: <input type="file" name="file"><br>
+        파일선택2: <input type="file" name="file2"><br>
+        <button type="submit">저장하기</button>
+    </form>
+    <h1>name을 같이 공유하는 파일 여러개 업로드</h1>
+    <form method="post" th:action="@{/file/upload2}" autocomplete="off" enctype="multipart/form-data">
+        파일선택1: <input type="file" name="file"><br>
+        파일선택2: <input type="file" name="file"><br>
+        <button type="submit">저장하기</button>
+    </form>
+
+    <h1>multiple 속성을 통한 파일 여러개 업로드</h1>
+    <form method="post" th:action="@{/file/upload2}" autocomplete="off" enctype="multipart/form-data">
+        파일선택: <input type="file" name="file" multiple><br>
+        <button type="submit">저장하기</button>
+    </form>
+</html>

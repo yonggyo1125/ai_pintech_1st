@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <body>
+        <form method="GET" th:action="@{/order/list}" th:object="${requestOrder}" autocomplete="off">
+            주문일:
+            <input type="text" name="sDate" th:field="*{sDate}">
+            <span th:each="err : ${#fields.errors('sDate')}" th:text="${err}"></span>
+            ~
+            <input type="text" name="eDate" th:field="*{eDate}">
+            <span th:each="err : ${#fields.errors('eDate')}" th:text="${err}"></span>
+            <button type="submit">주문 검색</button>
+        </form>
+    </body>
+</html>

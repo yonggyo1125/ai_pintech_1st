@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <header th:fragment="common">
+        <h1>사이트 상단 영역</h1>
+        <div th:if="${isLogin}"> <!-- 로그인 상태 -->
+            <th:block th:text="${#messages.msg('LOGIN_MSG', session.loggedMember.name, session.loggedMember.email)}"></th:block>
+            <a th:href="@{/member/logout}" th:text="#{로그아웃}"></a>
+        </div>
+        <div th:unless="${isLogin}"> <!-- 미로그인 상태 -->
+            <a th:href="@{/member/join}" th:text="#{회원가입}"></a>
+            <a th:href="@{/member/login}" th:text="#{로그인}"></a>
+        </div>
+    </header>
+</html>

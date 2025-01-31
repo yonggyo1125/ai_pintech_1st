@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <body>
+        <form method="POST" th:action="@{/question/save}" th:object="${requestQuestion}">
+            질문7 : <input type="text" name="q7" th:field="*{q7}"><br>
+            질문8 : <input type="text" name="q8" th:field="*{q8}"><br>
+            질문9 : <input type="text" name="q9" th:field="*{q9}"><br>
+            <button type="submit">제출하기</button>
+        </form>
+    </body>
+</html>

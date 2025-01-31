@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <style>
+      .box {
+        padding: 150px;
+      }
+
+      #box1 {
+        background: gray;
+      }
+
+      #box2 {
+        background: blue;
+      }
+
+      #box3 {
+        background: orange;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box" id="box1">
+      BOX1
+      <div class="box" id="box2">
+        BOX2
+        <div class="box" id="box3">BOX3</div>
+      </div>
+    </div>
+
+    <script>
+      const box1 = document.getElementById("box1");
+      const box2 = document.getElementById("box2");
+      const box3 = document.getElementById("box3");
+
+      box1.addEventListener("click", function (e) {
+        console.log("box1");
+      });
+
+      box2.addEventListener("click", function (e) {
+        console.log("box2");
+      });
+
+      box2.addEventListener("mouseenter", function (e) {
+        console.log("mouseenter");
+      });
+
+      box3.addEventListener("click", function (e) {
+        console.log("box3");
+        //console.log(e);
+        //e.stopPropagation(); // 전파 방지
+        e.stopImmediatePropagation();
+      });
+    </script>
+  </body>
+</html>

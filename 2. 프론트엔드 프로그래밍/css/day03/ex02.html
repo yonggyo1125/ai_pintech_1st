@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <style>
+      .wrap {
+        border: 1px solid #000;
+        margin: 300px 0 0 200px;
+        height: 10000px;
+        position: relative;
+      }
+
+      .box {
+        width: 100px;
+        height: 100px;
+      }
+
+      .box1 {
+        background: blue;
+        position: absolute;
+        top: 100px;
+        left: 100px;
+      }
+
+      .box2 {
+        background: orange;
+        position: fixed;
+        top: 100px;
+        left: 100px;
+      }
+    </style>
+    <div class="wrap">
+      <div class="box box1"></div>
+      <div class="box box2"></div>
+    </div>
+  </body>
+</html>

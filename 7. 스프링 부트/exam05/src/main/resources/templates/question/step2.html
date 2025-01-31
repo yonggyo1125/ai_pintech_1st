@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <body>
+        [[${commonMessage}]]
+        <form method="POST" th:action="@{/question/step3}" th:object="${requestQuestion}">
+            질문4 : <input type="text" name="q4" th:field="*{q4}"><br>
+            질문5 : <input type="text" name="q5" th:field="*{q5}"><br>
+            질문6 : <input type="text" name="q6" th:field="*{q6}"><br>
+            <button type="submit">다음 단계</button>
+        </form>
+    </body>
+</html>

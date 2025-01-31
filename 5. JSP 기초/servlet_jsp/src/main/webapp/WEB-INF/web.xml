@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee
+                      https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd"
+         version="6.0">
+
+    <context-param>
+        <param-name>key1</param-name>
+        <param-value>value1</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>key2</param-name>
+        <param-value>value2</param-value>
+    </context-param>
+
+    <servlet>
+        <servlet-name>Login-Controller</servlet-name>
+        <servlet-class>org.koreait.member.controllers.LoginController</servlet-class>
+
+        <init-param>
+            <param-name>key1</param-name>
+            <param-value>value1</param-value>
+        </init-param>
+
+        <init-param>
+            <param-name>key2</param-name>
+            <param-value>value2</param-value>
+        </init-param>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Login-Controller</servlet-name>
+        <url-pattern>/member/login</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+       <servlet-name>Join-Controller</servlet-name>
+        <servlet-class>org.koreait.member.controllers.JoinController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Join-Controller</servlet-name>
+        <url-pattern>/member/join</url-pattern>
+    </servlet-mapping>
+
+    <filter>
+        <filter-name>my-filter-1</filter-name>
+        <filter-class>org.koreait.filters.MyFilter1</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>my-filter-1</filter-name>
+        <url-pattern>/board/list</url-pattern>
+    </filter-mapping>
+
+    <filter>
+        <filter-name>my-filter-2</filter-name>
+        <filter-class>org.koreait.filters.MyFilter2</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>my-filter-2</filter-name>
+        <url-pattern>/board/list</url-pattern>
+    </filter-mapping>
+
+    <filter>
+        <filter-name>my-filter-3</filter-name>
+        <filter-class>org.koreait.filters.MyFilter3</filter-class>
+        <init-param>
+            <param-name>key1</param-name>
+            <param-value>value1</param-value>
+        </init-param>
+        <init-param>
+            <param-name>key2</param-name>
+            <param-value>value2</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>my-filter-3</filter-name>
+        <url-pattern>/board/*</url-pattern>
+    </filter-mapping>
+</web-app>

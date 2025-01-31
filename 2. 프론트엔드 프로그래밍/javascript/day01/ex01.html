@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script>
+      //const buttonEl = document.getElementById("button"); // id가 button인 document 객체를 선택
+      //console.log(buttonEl); // document 객체 선택 불가  / DOM 구성이 완료 X
+      window.addEventListener("DOMContentLoaded", function () {
+        // 실행 시점은 DOM 구성이 완료 된 상태
+        const buttonEl = document.getElementById("button");
+        console.log(buttonEl);
+      });
+    </script>
+  </head>
+  <body>
+    <button type="button" id="button">클릭</button>
+    <script>
+      const buttonEl2 = document.getElementById("button"); // id가 button인 document객체 변환 완료 후 이므로 선택 가능!
+      console.log("buttonEl2", buttonEl2);
+    </script>
+  </body>
+</html>

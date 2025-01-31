@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <style>
+      .box-group1 .box {
+        float: left;
+        /* float: right; */
+      }
+      .clear {
+        clear: left;
+      }
+
+      .box-group1::after {
+        content: "";
+        display: block;
+        clear: left;
+      }
+    </style>
+    <div class="box-group1">
+      <div class="box box1">BOX1</div>
+      <div class="box box2">BOX2</div>
+      <div class="box box3">BOX3</div>
+      <!--<div class="clear"></div>-->
+    </div>
+    <div class="content">본문 내용...</div>
+  </body>
+</html>
