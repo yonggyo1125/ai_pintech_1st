@@ -8,15 +8,18 @@ const ColorBox = (): React.ReactNode => {
 
   const handleClick = (color) => setSelected(color)
 
+  console.log('렌더링!', selected)
+
   return (
     <>
       <ColorTabs onClick={handleClick} />
+      <input type="text" placeholder="색상을 입력하세요" />
       <div
         style={{
           background: selected,
           width: 300,
           height: 300,
-          border: '1px solid #000',
+          border: '10px solid #000',
         }}
       ></div>
     </>
@@ -30,9 +33,10 @@ const ColorTabs = ({ onClick }) => {
     width: 500,
   }
   return (
-    <div style={tabStyle} onClick={onClick}>
+    <div style={tabStyle}>
       {colors.map((color) => (
         <div
+          onClick={() => onClick(color)}
           key={color}
           style={{ background: color, width: 0, flexGrow: 1 }}
         ></div>
