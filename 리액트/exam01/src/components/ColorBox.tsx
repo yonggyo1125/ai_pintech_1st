@@ -1,9 +1,36 @@
 'use client'
 import { useState, useLayoutEffect } from 'react'
 
+const colors: string[] = ['gray', 'red', 'blue', 'green', 'skyblue', 'orange']
+
 const ColorBox = (): React.ReactNode => {
-  const [colors, setColors] = useState<string[]>([])
   const [selected, setSelected] = useState<string>('gray')
+
+  const handleClick = (color) => setSelected(color)
+
+  return (
+    <>
+      <ColorTabs />
+    </>
+  )
+}
+
+const ColorTabs = () => {
+  const tabStyle = {
+    display: 'flex',
+    height: 100,
+    width: 500,
+  }
+  return (
+    <div style={tabStyle}>
+      {colors.map((color) => (
+        <div
+          key={color}
+          style={{ background: color, width: 0, flexGrow: 1 }}
+        ></div>
+      ))}
+    </div>
+  )
 }
 
 /*
