@@ -19,6 +19,7 @@ const Restaurant = () => {
     ;(async () => {
       const res = await fetch(url)
       const items = await res.json()
+<<<<<<< HEAD
       setItems(items)
     })()
   }, [items, limit])
@@ -39,6 +40,13 @@ const RestaurantItem = ({ item }): React.ReactNode => {
       <span>{name}</span>
     </li>
   )
+=======
+      console.log(items)
+    })()
+  }, [])
+
+  return <></>
+>>>>>>> ea32a69978d7f900e6d93e7ad0295099358f0c55
 }
 
 export default Restaurant

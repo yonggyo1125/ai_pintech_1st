@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+<<<<<<< HEAD
     "module": "commonJS",
     "esModuleInterop": true,
     "target": "ESNext",
@@ -12,4 +13,14 @@
     "paths": { "*": ["node_modules/*"] }
   },
   "include": ["src/**/*"]
+=======
+    "outDir": "./build/",
+    "sourceMap": true,
+    "noImplicitAny": true,
+    "module": "ESNext",
+    "target": "es5"
+  },
+  "exclude": ["node_modules"],
+  "include": ["./src/**/*.ts"]
+>>>>>>> ea32a69978d7f900e6d93e7ad0295099358f0c55
 }

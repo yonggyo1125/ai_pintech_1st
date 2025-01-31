@@ -3,5 +3,9 @@ dbeaver/
 out/
 /gradle-*
 /apache-tomcat-*
+<<<<<<< HEAD
 /naver_bert
 node_modules/
+=======
+/naver_bert
+>>>>>>> ea32a69978d7f900e6d93e7ad0295099358f0c55
