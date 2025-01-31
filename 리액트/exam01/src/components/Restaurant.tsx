@@ -22,7 +22,7 @@ const Restaurant = () => {
       setItems(items)
     })()
   }, [items, limit])
-  console.log('items2', items)
+  console.log('items2g', items)
   return (
     <ul>
       {items &&
