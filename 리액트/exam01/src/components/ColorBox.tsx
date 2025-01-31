@@ -10,10 +10,10 @@ const ColorBox = (): React.ReactNode => {
 
   return (
     <>
-      <ColorTabs />
+      <ColorTabs onClick={handleClick} />
       <div
         style={{
-          color: selected,
+          background: selected,
           width: 300,
           height: 300,
           border: '1px solid #000',
@@ -23,14 +23,14 @@ const ColorBox = (): React.ReactNode => {
   )
 }
 
-const ColorTabs = () => {
+const ColorTabs = ({ onClick }) => {
   const tabStyle = {
     display: 'flex',
     height: 100,
     width: 500,
   }
   return (
-    <div style={tabStyle}>
+    <div style={tabStyle} onClick={onClick}>
       {colors.map((color) => (
         <div
           key={color}
