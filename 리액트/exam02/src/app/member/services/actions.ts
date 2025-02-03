@@ -40,8 +40,14 @@ export const processJoin = async (formState, formData: FormData) => {
   }
 
   // 3) 서버쪽에 처리 요청
-  const form = { ...formData.entries() }
-
+  const form = {}
+  for (const [key, value] of formData.entries()) {
+    form[key] = value
+  }
+  form.requiredTerms1 = true
+  form.requiredTerms2 = true
+  form.requiredTerms3 = true
+  console.log('form', form)
   try {
     const res = await fetch('https://member-service.koreait.xyz/join', {
       method: 'POST',
