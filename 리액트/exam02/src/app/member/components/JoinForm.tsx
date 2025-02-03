@@ -1,7 +1,7 @@
-const JoinForm = () => {
+const JoinForm = ({ formAction }) => {
   return (
     <>
-      <form>
+      <form action={formAction}>
         <dl>
           <dt>이메일</dt>
           <dd>
