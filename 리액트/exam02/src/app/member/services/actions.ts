@@ -42,8 +42,11 @@ export const processJoin = async (formState, formData: FormData) => {
   // 3) 서버쪽에 처리 요청
   const form = {}
   for (const [key, value] of formData.entries()) {
-    form[key] = value
+    if (['email', 'password', 'confirmPassword', 'name'].includes(key)) {
+      form[key] = value
+    }
   }
+
   form.requiredTerms1 = true
   form.requiredTerms2 = true
   form.requiredTerms3 = true
@@ -56,9 +59,11 @@ export const processJoin = async (formState, formData: FormData) => {
       },
       body: JSON.stringify(form),
     })
+    if (res.status !== 201) {
+      // 처리 실패 -> 에러 출력
+    }
 
-    const json = await res.json()
-    console.log('json', json)
+    //  회원가입 성공시에는 로그인 페이지로 이동
   } catch (err) {
     console.error(err)
   }
