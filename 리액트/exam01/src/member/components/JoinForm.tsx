@@ -1,7 +1,13 @@
 'use client'
 import { FaRegSquareCheck, FaSquareCheck } from 'react-icons/fa6'
 
-const JoinForm = ({ onSubmit, onChange, onToggle, form }): React.ReactNode => {
+const JoinForm = ({
+  onSubmit,
+  onChange,
+  onToggle,
+  form,
+  errors,
+}): React.ReactNode => {
   return (
     <form onSubmit={onSubmit}>
       <dl>
@@ -13,6 +19,7 @@ const JoinForm = ({ onSubmit, onChange, onToggle, form }): React.ReactNode => {
             value={form.email}
             onChange={onChange}
           />
+          {errors?.email && errors.email.map((m) => <div key={m}>{m}</div>)}
         </dd>
       </dl>
       <dl>
