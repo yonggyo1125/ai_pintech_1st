@@ -1,7 +1,7 @@
 'use client'
 import { FaRegSquareCheck, FaSquareCheck } from 'react-icons/fa6'
 
-const JoinForm = ({ actionState, onChange, form }) => {
+const JoinForm = ({ actionState, onChange, onToggle, form }) => {
   const [errors, formAction, isPending] = actionState
   return (
     <>
@@ -56,7 +56,7 @@ const JoinForm = ({ actionState, onChange, form }) => {
             {errors?.name && errors.name.map((m) => <div key={m}>{m}</div>)}
           </dd>
         </dl>
-        <div>
+        <div onClick={onToggle}>
           {form?.agree ? <FaSquareCheck /> : <FaRegSquareCheck />} 회원가입
           약관에 동의합니다.
         </div>

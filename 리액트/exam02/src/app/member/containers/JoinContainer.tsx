@@ -19,8 +19,17 @@ const JoinContainer = () => {
     setForm((form) => ({ ...form, [e.target.name]: e.target.value }))
   }
 
+  const handleToggle = () => {
+    setForm((form) => ({ ...form, agree: !Boolean(form.agree) }))
+  }
+
   return (
-    <JoinForm actionState={actionState} onChange={handleChange} form={form} />
+    <JoinForm
+      actionState={actionState}
+      onChange={handleChange}
+      onToggle={handleToggle}
+      form={form}
+    />
   )
 }
 
