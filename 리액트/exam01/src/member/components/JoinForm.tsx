@@ -31,6 +31,8 @@ const JoinForm = ({
             value={form.password}
             onChange={onChange}
           />
+          {errors?.password &&
+            errors.password.map((m) => <div key={m}>{m}</div>)}
         </dd>
       </dl>
       <dl>
@@ -42,6 +44,8 @@ const JoinForm = ({
             value={form.confirmPassword}
             onChange={onChange}
           />
+          {errors?.confirmPassword &&
+            errors.confirmPassword.map((m) => <div key={m}>{m}</div>)}
         </dd>
       </dl>
       <dl>
@@ -53,6 +57,7 @@ const JoinForm = ({
             value={form.name}
             onChange={onChange}
           />
+          {errors?.name && errors.name.map((m) => <div key={m}>{m}</div>)}
         </dd>
       </dl>
       <div onClick={onToggle}>
