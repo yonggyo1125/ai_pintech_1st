@@ -1,4 +1,6 @@
-const JoinForm = ({ formAction }) => {
+'use client'
+const JoinForm = ({ actionState }) => {
+  const [state, formAction, isPending] = actionState
   return (
     <>
       <form action={formAction}>
@@ -26,7 +28,9 @@ const JoinForm = ({ formAction }) => {
             <input type="text" name="name" />
           </dd>
         </dl>
-        <button type="submit">가입하기</button>
+        <button type="submit" disabled={isPending}>
+          가입하기
+        </button>
       </form>
     </>
   )

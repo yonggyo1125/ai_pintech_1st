@@ -1,5 +1,5 @@
 'use server'
 
-export const processJoin = (formState, formData: FormData) => {
+export const processJoin = async (formState, formData: FormData) => {
   console.log('formState', formState, 'formData', formData)
 }
