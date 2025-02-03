@@ -80,3 +80,5 @@ export const processJoin = async (formState, formData: FormData) => {
   //  회원가입 성공시에는 로그인 페이지로 이동
   redirect('/member/login')
 }
+
+export const processLogin = async (form, formData: FormData) => {}
