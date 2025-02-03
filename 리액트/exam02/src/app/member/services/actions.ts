@@ -1,4 +1,5 @@
 'use server'
+import { redirect } from 'next/navigation'
 
 export const processJoin = async (formState, formData: FormData) => {
   /**
@@ -7,7 +8,8 @@ export const processJoin = async (formState, formData: FormData) => {
    * 3) 서버쪽에 처리 요청
    * 4) 후속 처리 -> 로그인 페이지 이동
    */
-  const errors = {}
+  let errors = {}
+  let hasErrors = false
 
   // 1) 필수 항목 검증 S
   const requiredFields = {
@@ -21,6 +23,7 @@ export const processJoin = async (formState, formData: FormData) => {
     if (!value || !value?.trim()) {
       errors[field] = errors[field] ?? []
       errors[field].push(msg)
+      hasErrors = true
     }
   }
   // 1) 필수 항목 검증 E
@@ -37,6 +40,7 @@ export const processJoin = async (formState, formData: FormData) => {
   ) {
     errors.confirmPassword = errors.confirmPassword ?? []
     errors.confirmPassword.push('비밀번호가 일치하지 않습니다.')
+    hasErrors = true
   }
 
   // 3) 서버쪽에 처리 요청
@@ -50,7 +54,6 @@ export const processJoin = async (formState, formData: FormData) => {
   form.requiredTerms1 = true
   form.requiredTerms2 = true
   form.requiredTerms3 = true
-  console.log('form', form)
   try {
     const res = await fetch('https://member-service.koreait.xyz/join', {
       method: 'POST',
@@ -61,12 +64,19 @@ export const processJoin = async (formState, formData: FormData) => {
     })
     if (res.status !== 201) {
       // 처리 실패 -> 에러 출력
+      const result = await res.json()
+      if (!result.success) {
+        errors = result.message
+        hasErrors = true
+      }
     }
-
-    //  회원가입 성공시에는 로그인 페이지로 이동
   } catch (err) {
     console.error(err)
   }
+  if (hasErrors) {
+    return errors
+  }
 
-  return errors
+  //  회원가입 성공시에는 로그인 페이지로 이동
+  redirect('/member/login')
 }

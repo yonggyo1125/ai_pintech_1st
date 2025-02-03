@@ -13,7 +13,7 @@ const JoinForm = ({ actionState, onChange, onToggle, form }) => {
               type="text"
               name="email"
               onChange={onChange}
-              value={form.email}
+              value={form?.email ?? ''}
             />
             {errors?.email && errors.email.map((m) => <div key={m}>{m}</div>)}
           </dd>
@@ -25,7 +25,7 @@ const JoinForm = ({ actionState, onChange, onToggle, form }) => {
               type="password"
               name="password"
               onChange={onChange}
-              value={form.password}
+              value={form?.password ?? ''}
             />
             {errors?.password &&
               errors.password.map((m) => <div key={m}>{m}</div>)}
@@ -38,7 +38,7 @@ const JoinForm = ({ actionState, onChange, onToggle, form }) => {
               type="password"
               name="confirmPassword"
               onChange={onChange}
-              value={form.confirmPassword}
+              value={form?.confirmPassword || ''}
             />
             {errors?.confirmPassword &&
               errors.confirmPassword.map((m) => <div key={m}>{m}</div>)}
@@ -51,7 +51,7 @@ const JoinForm = ({ actionState, onChange, onToggle, form }) => {
               type="text"
               name="name"
               onChange={onChange}
-              value={form.name}
+              value={form?.name || ''}
             />
             {errors?.name && errors.name.map((m) => <div key={m}>{m}</div>)}
           </dd>
