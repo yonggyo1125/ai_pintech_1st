@@ -1,5 +1,16 @@
+'use client'
+import { useRef, useEffect } from 'react'
 const LoginForm = ({ form, onChange, actionState }) => {
   const [errors, formAction, isPending] = actionState
+  const emailEl = useRef<HTMLInputElement | undefined>(undefined)
+
+  useEffect(() => {
+    //console.log('emailEl', emailEl)
+    if (emailEl) {
+      emailEl.current?.focus()
+    }
+  }, [emailEl])
+
   return (
     <>
       <form action={formAction}>
@@ -7,6 +18,7 @@ const LoginForm = ({ form, onChange, actionState }) => {
           <dt>이메일</dt>
           <dd>
             <input
+              ref={emailEl}
               type="text"
               name="email"
               value={form?.email ?? ''}
