@@ -118,6 +118,17 @@ export const processLogin = async (form, formData: FormData) => {
   // 1) 필수 항목 검증 - E
 
   // 2) 서버 요청 - S
-
+  const apiUrl = process.env.API_URL + '/member-service/login'
+  try {
+    const res = await fetch(apiUrl, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ email, password }),
+    })
+  } catch (err) {
+    console.error(err)
+  }
   // 2) 서버 요청 - E
 }
