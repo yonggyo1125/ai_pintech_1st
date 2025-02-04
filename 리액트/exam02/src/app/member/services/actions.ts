@@ -149,3 +149,30 @@ export const processLogin = async (form, formData: FormData) => {
 
   redirect('/')
 }
+
+/**
+ * 로그인한 사용자 정보 조회
+ *  - token 쿠키를 가지고 서버에 요청
+ */
+export const getUserInfo = async () => {
+  const cookie = await cookies()
+  const token = cookie.get('token')
+  if (!token) return
+
+  try {
+    const apiUrl = process.env.API_URL + '/member-service'
+    const res = await fetch(apiUrl, {
+      method: 'GET',
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    })
+
+    if (res.status === 200) {
+      const result = await res.json()
+      return result.data
+    }
+  } catch (err) {
+    console.error(err)
+  }
+}
