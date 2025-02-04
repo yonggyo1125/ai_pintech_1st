@@ -1,5 +1,6 @@
 'use server'
 import { redirect } from 'next/navigation'
+import { cookies } from 'next/headers'
 
 export const processJoin = async (formState, formData: FormData) => {
   /**
@@ -127,6 +128,20 @@ export const processLogin = async (form, formData: FormData) => {
       },
       body: JSON.stringify({ email, password }),
     })
+    const result = await res.json()
+    if (result.success) {
+      // 성공시
+      const cookie = await cookies()
+      cookie.set('token', result.data, {
+        httpOnly: true,
+        sameSite: 'none',
+        secure: true,
+        path: '/',
+      })
+    } else {
+      // 실패시
+      return result.message
+    }
   } catch (err) {
     console.error(err)
   }
