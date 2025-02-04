@@ -81,4 +81,39 @@ export const processJoin = async (formState, formData: FormData) => {
   redirect('/member/login')
 }
 
-export const processLogin = async (form, formData: FormData) => {}
+/**
+ * 로그인 처리
+ *
+ * @param form
+ * @param formData
+ */
+export const processLogin = async (form, formData: FormData) => {
+  /**
+   * 1) 필수 항목 검증
+   * 2) 서버 요청
+   * 3) 실패시 에러 메세지 출력
+   * 4) 성공시 지정된 주소 또는 메인으로 이동
+   */
+
+  const errors = {}
+  let hasErrors = false
+  // 1) 필수 항목 검증 - S
+  const email = formData.get('email')
+  const password = formData.get('password')
+
+  if (!email || !email.trim()) {
+    errors.email = errors?.email ?? []
+    errors.email.push('이메일을 입력하세요.')
+    hasErrors = true
+  }
+
+  if (!password || !password.trim()) {
+    errors.password = errors?.password ?? []
+    errors.password.push('비밀번호를 입력하세요.')
+    hasErrors = true
+  }
+  if (hasErrors) {
+    return errors
+  }
+  // 1) 필수 항목 검증 - E
+}
