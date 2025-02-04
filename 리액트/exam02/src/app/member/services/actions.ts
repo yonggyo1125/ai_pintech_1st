@@ -157,19 +157,20 @@ export const processLogin = async (form, formData: FormData) => {
 export const getUserInfo = async () => {
   const cookie = await cookies()
   const token = cookie.get('token')
-  if (!token) return
+
+  if (!token || !token.value) return
 
   try {
     const apiUrl = process.env.API_URL + '/member-service'
     const res = await fetch(apiUrl, {
       method: 'GET',
       headers: {
-        Authorization: `Bearer ${token}`,
+        Authorization: `Bearer ${token.value}`,
       },
     })
-
     if (res.status === 200) {
       const result = await res.json()
+
       return result.data
     }
   } catch (err) {
