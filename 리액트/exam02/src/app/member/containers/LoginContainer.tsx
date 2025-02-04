@@ -9,7 +9,9 @@ const LoginContainer = () => {
   const handleChange = (e) =>
     setForm((form) => ({ ...form, [e.target.name]: e.target.value }))
 
-  return <LoginForm form={form} onChange={handleChange} />
+  return (
+    <LoginForm actionState={actionState} form={form} onChange={handleChange} />
+  )
 }
 
 export default LoginContainer
