@@ -146,4 +146,6 @@ export const processLogin = async (form, formData: FormData) => {
     console.error(err)
   }
   // 2) 서버 요청 - E
+
+  redirect('/')
 }
