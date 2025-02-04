@@ -116,4 +116,8 @@ export const processLogin = async (form, formData: FormData) => {
     return errors
   }
   // 1) 필수 항목 검증 - E
+
+  // 2) 서버 요청 - S
+
+  // 2) 서버 요청 - E
 }
