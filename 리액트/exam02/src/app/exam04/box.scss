@@ -1,0 +1,16 @@
+$red: red;
+$blue: blue;
+$orange: orange;
+$gray: gray;
+
+.box-group {
+  .box {
+    background: $red;
+    width: 300px;
+    height: 300px;
+
+    &.blue {
+      background: $blue;
+    }
+  }
+}
