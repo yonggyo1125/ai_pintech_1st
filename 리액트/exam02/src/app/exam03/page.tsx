@@ -1,6 +1,10 @@
 'use client'
 import { useState } from 'react'
 
+function getTotal(numbers: number[]) {
+  return numbers.reduce((a, b) => a + b)
+}
+
 const Exam03Page = () => {
   const [numbers, setNumbers] = useState<number[]>([])
   const [number, setNumber] = useState<number | undefined>()
@@ -23,6 +27,7 @@ const Exam03Page = () => {
           <li key={num + '_' + i}>{num}</li>
         ))}
       </ul>
+      <div>합계: {getTotal(numbers)}</div>
     </>
   )
 }
