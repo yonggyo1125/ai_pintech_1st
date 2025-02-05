@@ -1,5 +1,6 @@
 'use client'
 import { FaRegSquareCheck, FaSquareCheck } from 'react-icons/fa6'
+import { Button } from '@/app/global/components/StyledButton'
 
 const JoinForm = ({ actionState, onChange, onToggle, form }) => {
   const [errors, formAction, isPending] = actionState
@@ -60,9 +61,9 @@ const JoinForm = ({ actionState, onChange, onToggle, form }) => {
           {form?.agree ? <FaSquareCheck /> : <FaRegSquareCheck />} 회원가입
           약관에 동의합니다.
         </div>
-        <button type="submit" disabled={isPending}>
+        <Button type="submit" disabled={isPending} color="blue">
           가입하기
-        </button>
+        </Button>
       </form>
     </>
   )
