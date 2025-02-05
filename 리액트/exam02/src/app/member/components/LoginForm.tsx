@@ -1,5 +1,5 @@
 'use client'
-import { useRef, useEffect } from 'react'
+import React, { useRef, useEffect } from 'react'
 const LoginForm = ({ form, onChange, actionState }) => {
   const [errors, formAction, isPending] = actionState
   const emailEl = useRef<HTMLInputElement | undefined>(undefined)
@@ -49,4 +49,4 @@ const LoginForm = ({ form, onChange, actionState }) => {
   )
 }
 
-export default LoginForm
+export default React.memo(LoginForm)

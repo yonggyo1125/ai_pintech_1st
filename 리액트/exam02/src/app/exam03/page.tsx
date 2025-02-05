@@ -1,20 +1,24 @@
 'use client'
-import { useState } from 'react'
+import { useState, useMemo, useCallback } from 'react'
 
 function getTotal(numbers: number[]) {
-  return numbers.reduce((a, b) => a + b)
+  console.log('호출!')
+  return numbers && numbers.length > 0 ? numbers.reduce((a, b) => a + b) : 0
 }
 
 const Exam03Page = () => {
   const [numbers, setNumbers] = useState<number[]>([])
   const [number, setNumber] = useState<number | undefined>()
 
-  const handleChange = (e) => setNumber(e.target.value)
-  const handleClick = () => {
+  const handleChange = useCallback((e) => setNumber(e.target.value), [])
+  const handleClick = useCallback(() => {
     if (number && !isNaN(number)) {
-      setNumbers(numbers.concat(number))
+      setNumbers((numbers) => numbers.concat(Number(number)))
     }
-  }
+    //console.log('number', number, 'numbers', numbers)
+  }, [number])
+
+  const total = useMemo(() => getTotal(numbers), [numbers])
 
   return (
     <>
@@ -27,7 +31,7 @@ const Exam03Page = () => {
           <li key={num + '_' + i}>{num}</li>
         ))}
       </ul>
-      <div>합계: {getTotal(numbers)}</div>
+      <div>합계: {total}</div>
     </>
   )
 }

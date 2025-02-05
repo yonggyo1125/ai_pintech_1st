@@ -1,5 +1,5 @@
 'use client'
-import { useState, useActionState } from 'react'
+import React, { useState, useActionState } from 'react'
 import { processLogin } from '../services/actions'
 import LoginForm from '../components/LoginForm'
 const LoginContainer = () => {
@@ -14,4 +14,4 @@ const LoginContainer = () => {
   )
 }
 
-export default LoginContainer
+export default React.memo(LoginContainer)
