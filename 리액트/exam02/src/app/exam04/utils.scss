@@ -1,0 +1,10 @@
+$red: red;
+$blue: blue;
+$orange: orange;
+$gray: gray;
+
+@mixin sqaure($size) {
+  $calculated: 50px * $size;
+  width: $calculated;
+  height: $calculated;
+}

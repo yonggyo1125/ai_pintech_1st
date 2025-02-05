@@ -1,4 +1,4 @@
-import './box.sass'
+import './box.scss'
 const Exam04Page = () => {
   return (
     <div className="box-group">

@@ -1,5 +1,7 @@
 'use client'
 import React, { useRef, useEffect } from 'react'
+import styles from './member.module.scss'
+
 const LoginForm = ({ form, onChange, actionState }) => {
   const [errors, formAction, isPending] = actionState
   const emailEl = useRef<HTMLInputElement | undefined>(undefined)
@@ -14,8 +16,8 @@ const LoginForm = ({ form, onChange, actionState }) => {
   return (
     <>
       <form action={formAction}>
-        <dl>
-          <dt>이메일</dt>
+        <dl className={styles.row}>
+          <dt className={styles.title}>이메일</dt>
           <dd>
             <input
               ref={emailEl}
