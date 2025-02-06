@@ -1,4 +1,18 @@
 'use client'
+import ColorBox from './ColorBox'
+import { ColorProvider } from './ColorContext2'
+
+const Exam08Page = () => {
+  return (
+    <ColorProvider>
+      <ColorBox />
+    </ColorProvider>
+  )
+}
+
+export default Exam08Page
+
+/*
 import { createContext } from 'react'
 import Component1 from './Component1'
 
@@ -15,3 +29,4 @@ const Exam08Page = () => {
 }
 
 export default Exam08Page
+*/
