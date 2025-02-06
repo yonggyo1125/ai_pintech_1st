@@ -13,7 +13,9 @@ const Exam06Page = () => {
       <button type="button" onClick={handleClick}>
         클릭
       </button>
-      <Suspense>{visible && <Message />}</Suspense>
+      <Suspense fallback={<div>로딩중...</div>}>
+        {visible && <Message />}
+      </Suspense>
     </>
   )
 }
