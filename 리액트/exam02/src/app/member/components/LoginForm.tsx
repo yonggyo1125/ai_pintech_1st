@@ -2,7 +2,7 @@
 import React, { useRef, useEffect } from 'react'
 import styles from './member.module.scss'
 
-const LoginForm = ({ form, onChange, actionState }) => {
+const LoginForm = ({ form, onChange, actionState, className }) => {
   const [errors, formAction, isPending] = actionState
   const emailEl = useRef<HTMLInputElement | undefined>(undefined)
 
@@ -15,7 +15,7 @@ const LoginForm = ({ form, onChange, actionState }) => {
 
   return (
     <>
-      <form action={formAction}>
+      <form action={formAction} className={className}>
         <dl className={styles.row}>
           <dt className={styles.title}>이메일</dt>
           <dd>

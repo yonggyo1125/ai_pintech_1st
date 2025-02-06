@@ -61,7 +61,7 @@ const JoinForm = ({ actionState, onChange, onToggle, form }) => {
           {form?.agree ? <FaSquareCheck /> : <FaRegSquareCheck />} 회원가입
           약관에 동의합니다.
         </div>
-        <Button type="submit" disabled={isPending} color="blue">
+        <Button type="submit" disabled={isPending} color="blue" border={true}>
           가입하기
         </Button>
       </form>

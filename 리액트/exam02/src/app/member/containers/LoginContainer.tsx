@@ -1,7 +1,13 @@
 'use client'
 import React, { useState, useActionState } from 'react'
+import styled from 'styled-components'
 import { processLogin } from '../services/actions'
 import LoginForm from '../components/LoginForm'
+
+const StyledLoginForm = styled(LoginForm)`
+  border: 10px solid orange;
+`
+
 const LoginContainer = () => {
   const [form, setForm] = useState<{ email?: string; password?: string }>({})
   const actionState = useActionState(processLogin, form)
@@ -10,7 +16,11 @@ const LoginContainer = () => {
     setForm((form) => ({ ...form, [e.target.name]: e.target.value }))
 
   return (
-    <LoginForm actionState={actionState} form={form} onChange={handleChange} />
+    <StyledLoginForm
+      actionState={actionState}
+      form={form}
+      onChange={handleChange}
+    />
   )
 }
 
