@@ -1,5 +1,5 @@
 'use client'
-import ColorBox from './ColorBox'
+import ColorBox from './ColorBox2'
 import { ColorProvider } from './ColorContext2'
 
 const Exam08Page = () => {
