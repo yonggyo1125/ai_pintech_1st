@@ -1,6 +1,7 @@
 'use client'
-import React, { useState } from 'react'
-import Message from './Message'
+import React, { useState, Suspense } from 'react'
+//import Message from './Message'
+const Message = React.lazy(() => import('./Message'))
 
 const Exam06Page = () => {
   const [visible, setVisible] = useState<boolean>(false)
@@ -12,7 +13,7 @@ const Exam06Page = () => {
       <button type="button" onClick={handleClick}>
         클릭
       </button>
-      {visible && <Message />}
+      <Suspense>{visible && <Message />}</Suspense>
     </>
   )
 }
