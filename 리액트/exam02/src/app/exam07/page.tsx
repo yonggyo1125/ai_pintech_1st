@@ -2,7 +2,9 @@
 import { useState } from 'react'
 import loadable from '@loadable/component'
 
-const Message = loadable(() => import('../exam06/Message'))
+const Message = loadable(() => import('../exam06/Message'), {
+  fallback: <div>로딩중...</div>,
+})
 
 const Exam07Page = () => {
   const [visible, setVisible] = useState<boolean>(false)
