@@ -20,6 +20,9 @@ dependencies {
     implementation 'com.oracle.database.jdbc:ojdbc11:23.7.0.25.01'
     implementation 'org.mybatis:mybatis:3.5.19'
     implementation 'org.mybatis:mybatis-spring:3.0.4'
+    compileOnly 'org.projectlombok:lombok:1.18.36'
+    implementation 'org.slf4j:slf4j-api:2.0.16'
+    implementation 'ch.qos.logback:logback-classic:1.5.16'
 
     testImplementation platform('org.junit:junit-bom:5.10.0')
     testImplementation 'org.junit.jupiter:junit-jupiter'

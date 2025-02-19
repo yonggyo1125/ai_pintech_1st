@@ -1,10 +1,14 @@
 package org.koreait.config;
 
+import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.tomcat.jdbc.pool.DataSource;
+import org.mybatis.spring.SqlSessionFactoryBean;
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
+@MapperScan("org.koreait.mapper")
 public class DbConfig {
 
     @Bean(destroyMethod = "close")
@@ -18,8 +22,16 @@ public class DbConfig {
         ds.setMaxActive(10);
         ds.setInitialSize(2);
         ds.setTestWhileIdle(true);
-        
+
 
         return ds;
+    }
+
+    @Bean
+    public SqlSessionFactory sqlSessionFactory() throws Exception {
+        SqlSessionFactoryBean factoryBean = new SqlSessionFactoryBean();
+        factoryBean.setDataSource(dataSource());
+
+        return factoryBean.getObject();
     }
 }
