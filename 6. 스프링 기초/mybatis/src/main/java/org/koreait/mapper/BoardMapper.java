@@ -20,4 +20,6 @@ public interface BoardMapper {
     List<Board> getList3(Board board);
 
     int register(Board board);
+
+    long total();
 }

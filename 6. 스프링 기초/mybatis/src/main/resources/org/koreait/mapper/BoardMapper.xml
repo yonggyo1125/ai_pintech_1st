@@ -3,8 +3,36 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.koreait.mapper.BoardMapper">
-    <select id="getList3" resultType="org.koreait.board.entities.Board">
-        SELECT * FROM BOARD_DATA WHERE SUBJECT LIKE #{subject}
+    <resultMap type="org.koreait.board.entities.Board" id="boardMap">
+        <result column="SEQ" property="seq" />
+        <result column="POSTER" property="poster" />
+        <result column="SUBJECT" property="subject" />
+        <result column="CONTENT" property="content" />
+        <result column="CREATED_AT" property="createdAt" />
+    </resultMap>
+
+    <select id="getList3" resultMap="boardMap">
+        <bind name="pattern" value="'%' + _parameter.getSubject() + '%'" />
+        SELECT * FROM BOARD_DATA WHERE SUBJECT LIKE #{pattern}
+    </select>
+
+    <select id="getList4" resultMap="boardMap">
+        SELECT * FROM BOARD_DATA
+        WHERE
+        <if test="subject != null">
+            SUBJECT LIKE #{subject}
+        </if>
+        <if test="content != null">
+            AND CONTENT LIKE #{content}
+        </if>
+    </select>
+
+    <select id="total" resultType="long">
+        SELECT COUNT(*) FROM BOARD_DATA
+    </select>
+
+    <select id="getSubjects" resultType="java.lang.String">
+        SELECT SUBJECT FROM BOARD_DATA
     </select>
 
     <insert id="register">
