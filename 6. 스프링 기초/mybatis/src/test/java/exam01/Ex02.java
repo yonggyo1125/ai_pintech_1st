@@ -10,12 +10,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 
-import java.sql.Connection;
 import java.util.List;
 
 @SpringJUnitConfig
 @ContextConfiguration(classes = AppCtx.class)
-public class Ex01 {
+public class Ex02 {
 
     @Autowired
     private SqlSessionFactory sessionFactory;
@@ -25,34 +24,18 @@ public class Ex01 {
 
     @Test
     void test1() {
-        SqlSession session = sessionFactory.openSession(); // auto commit - false
-        // JDBC API를 직접 사용할때
-        /**
-         * Statement
-         * PreparedStatement
-         * CallableStatement
-         */
-        Connection con = session.getConnection();
-        System.out.println(con);
-
-        //session.commit();
-
+        SqlSession session = sessionFactory.openSession();
+        Board board = new Board();
+        board.setSubject("%제목%");
+        List<Board> items = session.selectList("org.koreait.mapper.BoardMapper.getList3", board);
+        System.out.println(items);
     }
 
     @Test
     void test2() {
-        List<Board> items = boardMapper.getList();
-        items.forEach(System.out::println);
-    }
-
-    @Test
-    void test3() {
-        Board item = boardMapper.get(1L);
-        System.out.println(item);
-    }
-
-    @Test
-    void test4() {
-        List<Board> items = boardMapper.getList2("%제목%", "%내용%");
+        Board board = new Board();
+        board.setSubject("%제목%");
+        List<Board> items = boardMapper.getList3(board);
+        System.out.println(items);
     }
 }
