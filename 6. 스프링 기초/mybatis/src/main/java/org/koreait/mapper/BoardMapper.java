@@ -18,4 +18,6 @@ public interface BoardMapper {
     Board get(long seq);
 
     List<Board> getList3(Board board);
+
+    int register(Board board);
 }

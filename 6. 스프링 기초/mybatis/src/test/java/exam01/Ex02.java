@@ -38,4 +38,15 @@ public class Ex02 {
         List<Board> items = boardMapper.getList3(board);
         System.out.println(items);
     }
+
+    @Test
+    void test3() {
+        Board board = new Board();
+        board.setSubject("테스트 제목...");
+        board.setContent("테스트 내용...");
+        board.setPoster("테스트 작성자...");
+
+        int affectedRows = boardMapper.register(board);
+        System.out.println(affectedRows);
+    }
 }

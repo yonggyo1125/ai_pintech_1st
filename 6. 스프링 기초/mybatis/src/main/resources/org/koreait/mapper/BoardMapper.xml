@@ -8,8 +8,11 @@
     </select>
 
     <insert id="register">
-        INSERT INTO BOARD_DATA (SEQ, GID, POSTER, SUBJECT, CONTENT, CREATED_AT)
-        VALUES (BOARD_DATA_SEQ.nextval, 'testgid', #{poster}, #{subject}, #{content}, SYSDATE)
+        <selectKey keyProperty="seq" order="BEFORE" resultType="long">
+            SELECT BOARD_DATA_SEQ.nextval FROM DUAL
+        </selectKey>
+        INSERT INTO BOARD_DATA (SEQ, GID, POSTER, SUBJECT, CONTENT, CREATED_AT, NOTICE, COMMENT_COUNT, RECOMMEND_COUNT, VIEW_COUNT)
+        VALUES (#{seq}, 'testgid', #{poster}, #{subject}, #{content}, SYSDATE, 0, 0, 0, 0)
     </insert>
 
 </mapper>
